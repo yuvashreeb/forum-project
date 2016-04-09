@@ -1,6 +1,3 @@
-<?php
-include("connection.php");
-?>
 <!DOCTYPE HTML>
 <html>
     <head lang="en">
@@ -13,6 +10,14 @@ include("connection.php");
         <script type="text/javascript" src="js/jquery-2.2.2.min.js"></script>
         <script type="text/javascript" src="js/bootstrap.min.js"></script>
         <script type="text/javascript" src="js/validation.js"></script>
+        <?php
+        session_start();
+        include("connection.php");
+        $query = "SELECT Name FROM Admin WHERE id='" . $_SESSION['id'] . "' LIMIT 1";
+        $result = mysqli_query($link, $query);
+        $row = mysqli_fetch_array($result);
+        $Name = $row['Name'];
+        ?>
     </head>
     <body>
         <div class="navbar navbar-inverse">
@@ -27,19 +32,20 @@ include("connection.php");
                 </div>
             </div>
         </div>
-        <form method="post" action="index.php">
-            <div class="col-md-10 col-md-offset-2 center">
-                <div class="row">
-                    <div class="col-md-6 col-md-offset-2">
-                        Email Address
-                        <input type="email" id="Email" name="Email" id="Email" class="form-control" required=""/>
-                    </div>
-                    <div class="col-md-6 col-md-offset-2">
-                        <input type="submit" value="submit" class="btn btn-success marginTop" name="ForgotPassword">
-                    </div>
-
+        <!--<div class="container">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3">
+       
                 </div>
             </div>
-        </form>
+        </div>-->
+        <div class="container contentContainer">
+            <div class="row center marginTop">
+                <div class="col-md-6 col-md-offset-3 center color ">
+                    <?php echo 'Welcome Yuva!<br>Please click the following link to see your dashboard'; ?>
+                    <a href="admindashboard.php">Click Here!</a>
+                </div>
+            </div>
+        </div>
     </body>
 </html>

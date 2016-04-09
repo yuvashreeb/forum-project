@@ -14,7 +14,7 @@ include("connection.php");
         <script type="text/javascript" src="js/bootstrap.min.js"></script>
         <script type="text/javascript" src="js/validation.js"></script>
     </head>
-    <body> 
+    <body>
         <div class="navbar navbar-inverse">
             <div class="container-fluid">
                 <div class="navbar-header">
@@ -32,25 +32,40 @@ include("connection.php");
                                 <a class="dropdown-toggle" data-toggle="dropdown" href="">My Profile
                                     <span class="caret"></span></a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="editprofile.php">Edit Profile</a></li>
+                                    <li><a href="">Edit Profile</a></li>
                                     <li><a href="">View Profile</a></li>
                                 </ul>
                             </li>
-                            <li><a href="changepassword.php">Change Password</a></li>
-                            <li><a href="user.php?logout=1">Log Out</a></li>
+                            <li><a href="">Change Password</a></li>
+                            <li><a href="index.php?logout=1">Log Out</a></li>
                         </ul>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="container contentContainer">
-            <div class="row center marginTop">
-                <div class="col-md-6 col-md-offset-3 center color ">
-                    <?php echo '<h2>Welcome to your Dashboard!</h2>'; ?>
-                    <p class="lead">Use your dashboard to EDIT or VIEW your profile,Changing Password</p>
+        <div class="container">
+            <form method="post">
+            <div class="col-md-10 col-md-offset-2 center">
+                <div class="row">
+                    <div class="col-md-6 col-md-offset-2">
+                        Current Password
+                        <input type="password" id="CurrentPassword" name="CurrentPassword" id="CurrentPassword" class="form-control"/>
+                    </div>
+                    <div class="col-md-6 col-md-offset-2">
+                        New Password
+                        <input type="password" id="NewPassword" name="NewPassword" id="NewPassword" class="form-control"/>
+                    </div>
+                    <div class="col-md-6 col-md-offset-2">
+                        Confirm Password
+                        <input type="password" id="Confirmassword" name="ConfirmPassword" id="ConfirmPassword" class="form-control"/>
+                    </div>
+                    <div class="col-md-6 col-md-offset-2">
+                        <input type="submit" value="submit" class="btn btn-success marginTop" name="ChangePassword">
+                    </div>
+
                 </div>
             </div>
-        </div>
+        </form>
         </div>
     </body>
 </html>

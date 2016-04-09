@@ -1,5 +1,5 @@
 <?php
-include("connection.php");
+include ("adminlogin.php");
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -14,7 +14,7 @@ include("connection.php");
         <script type="text/javascript" src="js/bootstrap.min.js"></script>
         <script type="text/javascript" src="js/validation.js"></script>
     </head>
-    <body>
+    <body data-target=".navbar-collapse">
         <div class="navbar navbar-inverse">
             <div class="container-fluid">
                 <div class="navbar-header">
@@ -25,21 +25,24 @@ include("connection.php");
                     </button>
                     <a href="" class="navbar-brand">FORUM MANAGEMENT</a>
                 </div>
-            </div>
-        </div>
-        <form method="post" action="index.php">
-            <div class="col-md-10 col-md-offset-2 center">
-                <div class="row">
-                    <div class="col-md-6 col-md-offset-2">
-                        Email Address
-                        <input type="email" id="Email" name="Email" id="Email" class="form-control" required=""/>
-                    </div>
-                    <div class="col-md-6 col-md-offset-2">
-                        <input type="submit" value="submit" class="btn btn-success marginTop" name="ForgotPassword">
-                    </div>
-
+                <div class="collapse navbar-collapse">
+                    <form class="navbar-form navbar-right" method="post">
+                        <div class="form-group">
+                            <input type="email" name="adminemail" class="form-control" placeholder="Email Id" value="<?php if (isset($_POST['adminemail'])) echo addslashes($_POST['adminemail']); ?>" required=""/>
+                            <input type="password" name="adminpassword" class="form-control" placeholder="Password" value="<?php if (isset($_POST['adminpassword'])) echo addslashes($_POST['adminpassword']); ?>"/>
+                            <input type="submit" class="btn btn-success" name="submit" value="Log In">
+                        </div>
+                    </form>
                 </div>
             </div>
-        </form>
+        </div>
+        <div class="container-fluid">
+            <?php
+            if ($error) {
+                echo '<div class="alert alert-danger">' . addslashes($error) . '</div>';
+            }
+            ?>
+            <img src="images/admin.jpg" alt="yuva" height="570px" width="100%">
+        </div>
     </body>
 </html>

@@ -17,7 +17,6 @@
         $result = mysqli_query($link, $query);
         $row = mysqli_fetch_array($result);
         $Name = $row['FirstName'];
-        
         ?>
     </head>
     <body>
@@ -40,15 +39,13 @@
                 </div>
             </div>
         </div>-->
-        <div class="container contentContainer" id="topContainer">
-
+        <div class="container contentContainer">
             <div class="row center marginTop">
                 <div class="col-md-6 col-md-offset-3 center color ">
                     <?php echo 'Loged In Successfully!<br>Please click the following link to continue further'; ?>
                     <a href="userdashboard.php">Click Here!</a>
                 </div>
             </div>
-
         </div>
     </body>
 </html>
