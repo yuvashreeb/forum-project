@@ -1,0 +1,17 @@
+.marginTop{
+    margin-top: 10px;
+}
+.center{
+  padding-bottom: 6px;
+  padding-top: 10px;
+}
+h2{
+    color:blue;
+}
+body{
+    background-color:bisque;
+}
+.color{
+    color: green;
+    font-size: 30px;
+}
