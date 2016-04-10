@@ -91,11 +91,11 @@ include ("login.php");
                 <div class="row">
                     <div class="col-md-6 col-md-offset-2">
                         City:
-                        <input type="text" id="City" name="City" class="form-control" value="<?php if (isset($_POST['City'])) echo addslashes($_POST['City']); ?>"/><span id="city_error" class="red"></span><br />
+                        <input type="text" id="City" name="City" class="form-control" value="<?php if (isset($_POST['City'])) echo addslashes($_POST['City']); ?>"/><span id="cityerror" class="red"></span><br />
                     </div>
                     <div class="col-md-6 col-md-offset-2">
                         State:
-                        <input type="text" id="State" name="State" class="form-control" value="<?php if (isset($_POST['State'])) echo addslashes($_POST['State']); ?>"/><span id="state_error" class="red"></span><br />
+                        <input type="text" id="State" name="State" class="form-control" value="<?php if (isset($_POST['State'])) echo addslashes($_POST['State']); ?>"/><span id="stateerror" class="red"></span><br />
 
                     </div>
                 </div>
@@ -108,7 +108,7 @@ include ("login.php");
                 <div class="row">
                     <div class="col-md-6 col-md-offset-2">
                         Zip Code:
-                        <input type="text" id="ZipCode" name="ZipCode" class="form-control " value="<?php if (isset($_POST['ZipCode'])) echo addslashes($_POST['ZipCode']); ?>"/><span id="zip_error" class="red"></span><br/>
+                        <input type="text" id="ZipCode" name="ZipCode" class="form-control " value="<?php if (isset($_POST['ZipCode'])) echo addslashes($_POST['ZipCode']); ?>"/><span id="ziperror" class="red"></span><br/>
                     </div>
                 </div>
                 <div class="col-md-6 col-md-offset-2">

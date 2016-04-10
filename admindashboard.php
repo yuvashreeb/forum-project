@@ -29,15 +29,14 @@ include("connection.php");
                     <div class="collapse navbar-collapse">
                         <ul class="nav navbar-nav">>
                             <li class="dropdown">
-                                <a class="dropdown-toggle" data-toggle="dropdown" href="">My Profile
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="">Users
                                     <span class="caret"></span></a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="editprofile.php">Edit Profile</a></li>
-                                    <li><a href="">View Profile</a></li>
+                                    <li><a href="">Users List</a></li>
+                                    <li><a href="">New User</a></li>
                                 </ul>
                             </li>
-                            <li><a href="changepassword.php">Change Password</a></li>
-                            <li><a href="user.php?logout=1">Log Out</a></li>
+                            <li><a href="admin.php?logout=1">Log Out</a></li>
                         </ul>
                     </div>
                 </div>
@@ -47,7 +46,6 @@ include("connection.php");
             <div class="row center marginTop">
                 <div class="col-md-6 col-md-offset-3 center color ">
                     <?php echo '<h2>Welcome to your Dashboard!</h2>'; ?>
-                    <p class="lead">Use your dashboard to EDIT or VIEW your profile,Changing Password</p>
                 </div>
             </div>
         </div>
