@@ -29,11 +29,11 @@ include("connection.php");
                     <div class="collapse navbar-collapse">
                         <ul class="nav navbar-nav">>
                             <li class="dropdown">
-                                <a class="dropdown-toggle" data-toggle="dropdown" href="">My Profile
+                                <a data-toggle="dropdown" class="dropdown-toggle" href="#">My Profile
                                     <span class="caret"></span></a>
                                 <ul class="dropdown-menu">
                                     <li><a href="editprofile.php">Edit Profile</a></li>
-                                    <li><a href="">View Profile</a></li>
+                                    <li><a href="userview.php">View Profile</a></li>
                                 </ul>
                             </li>
                             <li><a href="changepassword.php">Change Password</a></li>

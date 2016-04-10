@@ -35,7 +35,7 @@ include ("login.php");
                     <div class="collapse navbar-collapse">
                         <ul class="nav navbar-nav">>
                             <li class="dropdown">
-                                <a class="dropdown-toggle" data-toggle="dropdown" href="">My Profile
+                                <a data-toggle="dropdown" class="dropdown-toggle" href="#">My Profile
                                     <span class="caret"></span></a>
                                 <ul class="dropdown-menu">
                                     <li><a href="">Edit Profile</a></li>
@@ -43,7 +43,7 @@ include ("login.php");
                                 </ul>
                             </li>
                             <li><a href="changepassword.php">Change Password</a></li>
-                            <li><a href="index.php?logout=1">Log Out</a></li>
+                            <li><a href="user.php?logout=1">Log Out</a></li>
                         </ul>
                     </div>
                 </div>

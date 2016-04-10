@@ -1,5 +1,5 @@
 <?php
-include("connection.php");
+include("passwordchange.php");
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -29,7 +29,7 @@ include("connection.php");
                     <div class="collapse navbar-collapse">
                         <ul class="nav navbar-nav">>
                             <li class="dropdown">
-                                <a class="dropdown-toggle" data-toggle="dropdown" href="">My Profile
+                                <a data-toggle="dropdown" class="dropdown-toggle" href="#">My Profile
                                     <span class="caret"></span></a>
                                 <ul class="dropdown-menu">
                                     <li><a href="">Edit Profile</a></li>
@@ -37,7 +37,7 @@ include("connection.php");
                                 </ul>
                             </li>
                             <li><a href="">Change Password</a></li>
-                            <li><a href="index.php?logout=1">Log Out</a></li>
+                            <li><a href="user.php?logout=1">Log Out</a></li>
                         </ul>
                     </div>
                 </div>
@@ -45,27 +45,36 @@ include("connection.php");
         </div>
         <div class="container">
             <form method="post">
-            <div class="col-md-10 col-md-offset-2 center">
-                <div class="row">
-                    <div class="col-md-6 col-md-offset-2">
-                        Current Password
-                        <input type="password" id="CurrentPassword" name="CurrentPassword" id="CurrentPassword" class="form-control"/>
+                <div class="col-md-10 col-md-offset-2 center">
+                    <div class="row">
+                        <div class="col-md-6 col-md-offset-2">
+                            Current Password
+                            <input type="password" id="CurrentPassword" name="CurrentPassword" id="CurrentPassword" class="form-control" required/>
+                            <br><span class="red"><?php
+                                if (isset($error)) {
+                                    echo "<div class='alert alert-danger'>" . $error . "</div>";
+                                }
+                                ?></span>
+                        </div>
+                        <div class="col-md-6 col-md-offset-2">
+                            New Password
+                            <input type="password" id="NewPassword" name="NewPassword" id="NewPassword" class="form-control" required/>
+                        </div>
+                        <div class="col-md-6 col-md-offset-2">
+                            Confirm Password
+                            <input type="password" id="Confirmassword" name="ConfirmPassword" id="ConfirmPassword" class="form-control" required/>
+                        </div>
+                        <div class="col-md-6 col-md-offset-2">
+                            <input type="submit" value="submit" class="btn btn-success marginTop" name="ChangePassword">
+                        </div>
                     </div>
-                    <div class="col-md-6 col-md-offset-2">
-                        New Password
-                        <input type="password" id="NewPassword" name="NewPassword" id="NewPassword" class="form-control"/>
-                    </div>
-                    <div class="col-md-6 col-md-offset-2">
-                        Confirm Password
-                        <input type="password" id="Confirmassword" name="ConfirmPassword" id="ConfirmPassword" class="form-control"/>
-                    </div>
-                    <div class="col-md-6 col-md-offset-2">
-                        <input type="submit" value="submit" class="btn btn-success marginTop" name="ChangePassword">
-                    </div>
-
                 </div>
-            </div>
-        </form>
+            </form>
+            <?php
+            if (isset($msg)) {
+                echo "<div class='alert alert-success>" . $msg . "</div>";
+            }
+            ?>
         </div>
     </body>
 </html>

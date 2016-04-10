@@ -1,5 +1,6 @@
 <?php
-include("connection.php");
+//error_reporting(0);
+include ('forgot.php');
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -25,21 +26,37 @@ include("connection.php");
                     </button>
                     <a href="" class="navbar-brand">FORUM MANAGEMENT</a>
                 </div>
+                <div class="pull-right">
+                    <div class="collapse navbar-collapse">
+                        <ul class="nav navbar-nav">>
+                            <li><a href="user.php">Home</a></li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
-        <form method="post" action="index.php">
+        <div class="container">
+        <form method="post">
             <div class="col-md-10 col-md-offset-2 center">
                 <div class="row">
                     <div class="col-md-6 col-md-offset-2">
                         Email Address
-                        <input type="email" id="Email" name="Email" id="Email" class="form-control" required=""/>
+                        <input type="email" id="EmailForgot" name="EmailForgot" class="form-control" required value="<?php if (isset($email)) echo $email; ?>"/>
                     </div>
                     <div class="col-md-6 col-md-offset-2">
-                        <input type="submit" value="submit" class="btn btn-success marginTop" name="ForgotPassword">
+                        <input type="submit" value="submit" class="btn btn-success marginTop" name="submit">
                     </div>
-
                 </div>
             </div>
         </form>
+        </div>
+        <?php
+        if (isset($error)) {
+            echo '<div class="alert alert-danger">' . $error . '</div>';
+        }
+        if (isset($message)) {
+            echo '<div class="alert alert-success">' . $message . '</div>';
+        }
+        ?>
     </body>
 </html>
