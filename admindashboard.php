@@ -32,7 +32,7 @@ include("connection.php");
                                 <a class="dropdown-toggle" data-toggle="dropdown" href="">Users
                                     <span class="caret"></span></a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="">Users List</a></li>
+                                    <li><a href="userlist.php">Users List</a></li>
                                     <li><a href="createuser.php">New User</a></li>
                                 </ul>
                             </li>

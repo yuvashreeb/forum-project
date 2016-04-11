@@ -57,8 +57,8 @@ echo $variable;
 
         </script>
     </head>
-
     <body>
+        
         <div id="googleMap" style="width:500px;height:380px;"></div>
     </body>
 </html>

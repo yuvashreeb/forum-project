@@ -1,13 +1,14 @@
 <?php
+
 error_reporting(0);
 session_start();
 $Userquery = "SELECT * FROM RegisteredUser WHERE Id='" . $_SESSION['id'] . "' LIMIT 1";
 $Userresult = mysqli_query($link, $Userquery);
 $row = mysqli_fetch_array($Userresult);
 $Name = $row['FirstName'];
-$LastName=$row['LastName'];
-$EmailAddress=$row['EmailAddress'];
-$MobileNumber=$row['MobileNumber'];
+$LastName = $row['LastName'];
+$EmailAddress = $row['EmailAddress'];
+$MobileNumber = $row['MobileNumber'];
 
 if ($_GET['logout'] == 1 AND $_SESSION['id']) {
     session_destroy();
@@ -47,27 +48,12 @@ if (isset($_POST['submit']) == "Sign Up") {
             $query = "INSERT INTO RegisteredUser (FirstName,LastName,EmailAddress,Password,MobileNumber) VALUES('" . mysqli_real_escape_string($link, $_POST['FirstName']) . "', '" . ($_POST['LastName']) . "', '" . ($_POST['EmailAddress']) . "', '" . ($_POST['Password']) . "', '" . ($_POST['MobileNumber']) . "')";
             mysqli_query($link, $query);
             $msg.="<center>You Were Successfully Signed Up !</center>";
-            $_SESSION['id'] = mysqli_insert_id($link);
+            //$_SESSION['id'] = mysqli_insert_id($link);
+            include 'mail.php';
+
         }
     }
 }
-
-/* if (isset($_POST['submit'])=='Log In') {
-  alert('hello');
-  $x = mysqli_real_escape_string($link, $_POST['LoginEmail']);
-  $y = ($_POST['LoginPassword']);
-  $login_que = "SELECT * FROM RegisteredUser WHERE EmailAddress='$x' AND Password='$y'";
-  //$query="SELECT * FROM users WHERE email='".mysqli_real_escape_string($link,$_POST['loginemail'])."' AND password='".md5(md5($_POST['loginemail'].$_POST['loginpassword']))."'";
-  $result1 = mysqli_query($link, $login_que);
-  $row = mysqli_fetch_array($result1);
-  //print_r($row);
-  if ($row) {
-  $_SESSION['id'] = $row['id'];
-  //header("Location:loginsuccess.php");
-  } else {
-  $error = "we could not find a user with the email and password.Sign Up!!";
-  }
-  } */
 if (isset($_POST['submit'])) {
     if ($_POST['submit'] == "login") {
 
@@ -76,10 +62,10 @@ if (isset($_POST['submit'])) {
         $login_que = "SELECT * FROM RegisteredUser WHERE EmailAddress='$x' AND Password='$y'";
         //$query="SELECT * FROM users WHERE email='".mysqli_real_escape_string($link,$_POST['loginemail'])."' AND password='".md5(md5($_POST['loginemail'].$_POST['loginpassword']))."'"; 
         $result1 = mysqli_query($link, $login_que);
-        $row = mysqli_fetch_array($result1);
+        $row = mysqli_fetch_row($result1);
         //print_r($row);
         if ($row) {
-            $_SESSION['id'] = $row['Id'];
+            $_SESSION['id'] = $row[0];
             print_r($_SESSION);
             header("Location:loginsuccess.php");
         } else {
