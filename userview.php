@@ -1,5 +1,6 @@
 <?php
 include('connection.php');
+include('login.php');
 session_start();
 $id = $_SESSION["id"];
 $query = "select * from RegisteredUser where Id='$id'";
@@ -8,12 +9,12 @@ $row = mysqli_fetch_row($result);
 $firstName = $row[1];
 $lastName = $row[2];
 $emailAddress = $row[3];
-$mobileNumber = $row[4];
-$addressLineOne = $row[5];
-$addressLineTwo = $row[6];
-$city = $row[7];
-$state = $row[8];
-$country = $row[9];
+$mobileNumber = $row[5];
+$addressLineOne = $row[6];
+$addressLineTwo = $row[7];
+$city = $row[8];
+$state = $row[9];
+$country = $row[11];
 $zipcode = $row[10];
 ?>
 <html>
@@ -39,20 +40,27 @@ $zipcode = $row[10];
                     </button>
                     <a href="" class="navbar-brand">FORUM MANAGEMENT</a>
                 </div>
-                <div class="pull-right">
+                <div class="pull-left">
                     <div class="collapse navbar-collapse">
                         <ul class="nav navbar-nav">>
                             <li class="dropdown">
                                 <a data-toggle="dropdown" class="dropdown-toggle" href="#">My Profile
                                     <span class="caret"></span></a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="">Edit Profile</a></li>
-                                    <li><a href="">View Profile</a></li>
+                                    <li><a href="editprofile.php">Edit Profile</a></li>
+
                                 </ul>
                             </li>
+                            <li><a href="">View Profile</a></li>
                             <li><a href="changepassword.php">Change Password</a></li>
                             <li><a href="user.php?logout=1">Log Out</a></li>
                         </ul>
+                    </div>
+                </div>
+                <div class="navbar-form navbar-right">
+                    <div class="sign">
+                        <?php echo $Name; ?>
+                        <img src="images/user.png" />
                     </div>
                 </div>
             </div>
@@ -96,7 +104,7 @@ $zipcode = $row[10];
                             <label>Address Line 2:</label>
                             <textarea class="form-control" name="addressLineTwo" disabled><?php echo $addressLineTwo; ?></textarea>
                         </div>
-                    
+                        <a href="Map.php">Click Here To View Location</a>
                     </div>
                     <div class="row">
                         <div class="col-md-6 col-md-offset-3">
@@ -113,18 +121,18 @@ $zipcode = $row[10];
                     </div>
                     <div class="row">
                         <div class="col-md-6 col-md-offset-3>
-                            <label>Country:</label>
-                            <input type="text" class="form-control" value='<?php echo $country; ?>' disabled>
-                        </div>
+                             <label>Country:</label>
+                             <input type="text" class="form-control" value='<?php echo $country; ?>' disabled>
                     </div>
-                    <div class="row">
-                        <div class="col-md-6 col-md-offset-3">
-                            <label>ZipCode:</label>
-                            <input type="tel" class="form-control" value='<?php echo $zipcode; ?>' disabled>
-                        </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 col-md-offset-3">
+                        <label>ZipCode:</label>
+                        <input type="tel" class="form-control" value='<?php echo $zipcode; ?>' disabled>
                     </div>
-                </form>
-            </div>
+                </div>
+            </form>
         </div>
-    </body>
+    </div>
+</body>
 </html>

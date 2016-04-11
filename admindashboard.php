@@ -33,7 +33,7 @@ include("connection.php");
                                     <span class="caret"></span></a>
                                 <ul class="dropdown-menu">
                                     <li><a href="">Users List</a></li>
-                                    <li><a href="">New User</a></li>
+                                    <li><a href="createuser.php">New User</a></li>
                                 </ul>
                             </li>
                             <li><a href="admin.php?logout=1">Log Out</a></li>

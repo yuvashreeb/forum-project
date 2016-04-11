@@ -1,5 +1,6 @@
 <?php
 include("connection.php");
+include('login.php');
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -25,7 +26,7 @@ include("connection.php");
                     </button>
                     <a href="" class="navbar-brand">FORUM MANAGEMENT</a>
                 </div>
-                <div class="pull-right">
+                <div class="pull-left">
                     <div class="collapse navbar-collapse">
                         <ul class="nav navbar-nav">>
                             <li class="dropdown">
@@ -33,12 +34,20 @@ include("connection.php");
                                     <span class="caret"></span></a>
                                 <ul class="dropdown-menu">
                                     <li><a href="editprofile.php">Edit Profile</a></li>
-                                    <li><a href="userview.php">View Profile</a></li>
+
                                 </ul>
                             </li>
+                            <li><a href="userview.php">View Profile</a></li>
                             <li><a href="changepassword.php">Change Password</a></li>
                             <li><a href="user.php?logout=1">Log Out</a></li>
+
                         </ul>
+                    </div>
+                </div>
+                <div class="navbar-form navbar-right">
+                    <div class="sign">
+                        <?php echo $Name; ?>
+                        <img src="images/user.png" />
                     </div>
                 </div>
             </div>

@@ -1,6 +1,7 @@
 <?php
 include("connection.php");
 include ("login.php");
+include("update.php");
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -16,11 +17,6 @@ include ("login.php");
         <script type="text/javascript" src="js/validation.js"></script>
     </head>
     <body>
-        <?php
-        if (isset($_POST['submit']) == 'Sign Up') {
-            $FirstName = $_POST['FirstName'];
-        }
-        ?>
         <div class="navbar navbar-inverse">
             <div class="container-fluid">
                 <div class="navbar-header">
@@ -31,20 +27,26 @@ include ("login.php");
                     </button>
                     <a href="" class="navbar-brand">FORUM MANAGEMENT</a>
                 </div>
-                <div class="pull-right">
+                <div class="pull-left">
                     <div class="collapse navbar-collapse">
                         <ul class="nav navbar-nav">>
                             <li class="dropdown">
                                 <a data-toggle="dropdown" class="dropdown-toggle" href="#">My Profile
                                     <span class="caret"></span></a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="">Edit Profile</a></li>
-                                    <li><a href="">View Profile</a></li>
+                                    <li><a href="editprofile.php">Edit Profile</a></li>
                                 </ul>
                             </li>
+                            <li><a href="userview.php">View Profile</a></li>
                             <li><a href="changepassword.php">Change Password</a></li>
                             <li><a href="user.php?logout=1">Log Out</a></li>
                         </ul>
+                    </div>
+                </div>
+                <div class="navbar-form navbar-right">
+                    <div class="sign">
+                        <?php echo $Name; ?>
+                        <img src="images/user.png" />
                     </div>
                 </div>
             </div>
@@ -54,25 +56,25 @@ include ("login.php");
                 <div class="row">
                     <div class="col-md-6 col-md-offset-2 marginTop">
                         First Name
-                        <input type="text" id="FirstName" name="FirstName" class="form-control" value="<?php echo $_POST['FirstName']; ?>" readonly=""/><br>
+                        <input type="text" id="FirstName" name="FirstName" class="form-control" value="<?php echo $Name; ?>" readonly/><br>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-6 col-md-offset-2">
                         Last Name
-                        <input type="text" id="LastName" name="LastName" class="form-control" readonly=""/><br>
+                        <input type="text" id="LastName" name="LastName" class="form-control" readonly value="<?php echo $LastName; ?>"/><br>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-6 col-md-offset-2">
                         Email Id
-                        <input type="Email" id="EmailAddress" name="EmailAddress" class="form-control" readonly=""/><br>
+                        <input type="Email" id="EmailAddress" name="EmailAddress" class="form-control" readonly value="<?php echo $EmailAddress; ?>"/><br>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-6 col-md-offset-2">
                         Mobile Number
-                        <input type="text" id="MobileNumber" name="MobileNumber" maxlength="10" class="form-control" readonly=""/><br>
+                        <input type="text" id="MobileNumber" name="MobileNumber" maxlength="10" class="form-control" readonly value="<?php echo $MobileNumber; ?>"/><br>
                         <span id="mobile_error" > </span><br />
                     </div>
                 </div>
@@ -91,44 +93,35 @@ include ("login.php");
                 <div class="row">
                     <div class="col-md-6 col-md-offset-2">
                         City:
-                        <input type="text" id="City" name="City" class="form-control" value="<?php if (isset($_POST['City'])) echo addslashes($_POST['City']); ?>"/><span id="cityerror" class="red"></span><br />
+                        <input type="text" id="City" name="City" class="form-control"/><span id="cityerror" class="red"></span><br />
                     </div>
                     <div class="col-md-6 col-md-offset-2">
                         State:
-                        <input type="text" id="State" name="State" class="form-control" value="<?php if (isset($_POST['State'])) echo addslashes($_POST['State']); ?>"/><span id="stateerror" class="red"></span><br />
+                        <input type="text" id="State" name="State" class="form-control"/><span id="stateerror" class="red"></span><br />
 
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-6 col-md-offset-2">
                         Country:
-                        <input type="text" name="Country" id="Country" class="form-control" value="<?php if (isset($_POST['Country'])) echo addslashes($_POST['Country']); ?>"/><span id="countryerror" class="red"></span><br/>
+                        <input type="text" name="Country" id="Country" class="form-control"/><span id="countryerror" class="red"></span><br/>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-6 col-md-offset-2">
                         Zip Code:
-                        <input type="text" id="ZipCode" name="ZipCode" class="form-control " value="<?php if (isset($_POST['ZipCode'])) echo addslashes($_POST['ZipCode']); ?>"/><span id="ziperror" class="red"></span><br/>
+                        <input type="text" id="ZipCode" name="ZipCode" class="form-control" maxlength="6"/><span id="ziperror" class="red"></span><br/>
                     </div>
                 </div>
                 <div class="col-md-6 col-md-offset-2">
-                    <input type="submit" value="Sign In" class="btn btn-success marginTop" name="submit">
+                    <input type="submit" value="Update" class="btn btn-success marginTop" name="Update">
                 </div>
-                <?php
-                if ($msg) {
-                    echo '<div class="alert alert-success">' . addslashes($msg) . '</div>';
-                }
-                ?>
             </form>
+            <?php
+            if ($msg) {
+                echo '<div class="alert alert-success">' . addslashes($msg) . '</div>';
+            }
+            ?>
         </div>
-        <?php
-        if (isset($_POST['submit']) == 'Sign In') {
-            session_start();
-            $query = "INSERT INTO RegisteredUser (AddressOne,AddressTwo,City,State,Country,ZipCode) VALUES('" . ($_POST['AddressOne']) . "', '" . ($_POST['AddressTwo']) . "', '" . ($_POST['City']) . "', '" . ($_POST['State']) . "', '" . ($_POST['Country']) . "', '" . ($_POST['ZipCode']) . "')";
-            mysqli_query($link, $query);
-            $msg.="<center>Updated your profile!</center>";
-            $id = $_SESSION['id'];
-        }
-        ?>
     </body>
 </html>

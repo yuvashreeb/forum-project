@@ -11,11 +11,10 @@
         <script type="text/javascript" src="js/bootstrap.min.js"></script>
         <script type="text/javascript" src="js/validation.js"></script>
         <?php
-        session_start();
-        include("connection.php");
-        $query = "SELECT FirstName FROM RegisteredUser WHERE id='" . $_SESSION['id'] . "' LIMIT 1";
-        $result = mysqli_query($link, $query);
-        $row = mysqli_fetch_array($result);
+        include("login.php");
+        $Userquery = "SELECT FirstName FROM RegisteredUser WHERE Id='" . $_SESSION['id'] . "' LIMIT 1";
+        $Userresult = mysqli_query($link, $Userquery);
+        $row = mysqli_fetch_array($Userresult);
         $Name = $row['FirstName'];
         ?>
     </head>
@@ -42,7 +41,7 @@
         <div class="container contentContainer">
             <div class="row center marginTop">
                 <div class="col-md-6 col-md-offset-3 center color ">
-                    <?php echo 'Loged In Successfully!<br>Please click the following link to continue further'; ?>
+                    <?php echo "Welcome ".$Name."<br>";echo ' You Loged In Successfully!<br>Please click the following link to continue further'; ?>
                     <a href="userdashboard.php">Click Here!</a>
                 </div>
             </div>

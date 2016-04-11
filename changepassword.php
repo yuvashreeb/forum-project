@@ -1,4 +1,6 @@
 <?php
+error_reporting(0);
+include('login.php');
 include("passwordchange.php");
 ?>
 <!DOCTYPE HTML>
@@ -25,22 +27,29 @@ include("passwordchange.php");
                     </button>
                     <a href="" class="navbar-brand">FORUM MANAGEMENT</a>
                 </div>
-                <div class="pull-right">
+                <div class="pull-left">
                     <div class="collapse navbar-collapse">
                         <ul class="nav navbar-nav">>
                             <li class="dropdown">
                                 <a data-toggle="dropdown" class="dropdown-toggle" href="#">My Profile
                                     <span class="caret"></span></a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="">Edit Profile</a></li>
-                                    <li><a href="">View Profile</a></li>
+                                    <li><a href="editprofile.php">Edit Profile</a></li>
+
                                 </ul>
                             </li>
-                            <li><a href="">Change Password</a></li>
+                            <li><a href="userview.php">View Profile</a></li>
+                            <li><a href="changepassword.php">Change Password</a></li>
                             <li><a href="user.php?logout=1">Log Out</a></li>
                         </ul>
                     </div>
                 </div>
+                <div class="navbar-form navbar-right">
+                        <div class="sign">
+                            <?php echo $Name; ?>
+                            <img src="images/user.png" />
+                        </div>
+                    </div>
             </div>
         </div>
         <div class="container">
@@ -49,8 +58,8 @@ include("passwordchange.php");
                     <div class="row">
                         <div class="col-md-6 col-md-offset-2">
                             Current Password
-                            <input type="password" id="CurrentPassword" name="CurrentPassword" id="CurrentPassword" class="form-control" required/>
-                            <br><span class="red"><?php
+                            <input type="password" id="CurrentPassword" name="CurrentPassword" id="CurrentPassword" class="form-control" required title="please enter current password"/>
+                            <span class="red"><?php
                                 if (isset($error)) {
                                     echo "<div class='alert alert-danger'>" . $error . "</div>";
                                 }
@@ -58,14 +67,14 @@ include("passwordchange.php");
                         </div>
                         <div class="col-md-6 col-md-offset-2">
                             New Password
-                            <input type="password" id="NewPassword" name="NewPassword" id="NewPassword" class="form-control" required/>
+                            <input type="password" id="NewPassword" name="NewPassword" id="NewPassword" class="form-control" required title="please enter new password"/>
                         </div>
                         <div class="col-md-6 col-md-offset-2">
                             Confirm Password
-                            <input type="password" id="Confirmassword" name="ConfirmPassword" id="ConfirmPassword" class="form-control" required/>
+                            <input type="password" id="ConfirmPassword" name="ConfirmPassword" id="ConfirmPassword" class="form-control" required title="please enter confirm new password"/>
                         </div>
                         <div class="col-md-6 col-md-offset-2">
-                            <input type="submit" value="submit" class="btn btn-success marginTop" name="ChangePassword">
+                            <input type="submit" value="ChangePassword" class="btn btn-success marginTop" name="ChangePassword">
                         </div>
                     </div>
                 </div>

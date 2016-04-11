@@ -1,11 +1,18 @@
 <?php
-
 error_reporting(0);
 session_start();
-/* if ($_GET['logout'] == 1 AND $_SESSION['id']) {
-  session_destroy();
-  $msg = "you have been successfully logged out!";
-  } */
+$Userquery = "SELECT * FROM RegisteredUser WHERE Id='" . $_SESSION['id'] . "' LIMIT 1";
+$Userresult = mysqli_query($link, $Userquery);
+$row = mysqli_fetch_array($Userresult);
+$Name = $row['FirstName'];
+$LastName=$row['LastName'];
+$EmailAddress=$row['EmailAddress'];
+$MobileNumber=$row['MobileNumber'];
+
+if ($_GET['logout'] == 1 AND $_SESSION['id']) {
+    session_destroy();
+    $msg = "you have been successfully logged out!";
+}
 include("connection.php");
 if (isset($_POST['submit']) == "Sign Up") {
     $error = "";
@@ -72,8 +79,8 @@ if (isset($_POST['submit'])) {
         $row = mysqli_fetch_array($result1);
         //print_r($row);
         if ($row) {
-            $_SESSION['id'] = $row['id'];
-            //print_r($_SESSION);
+            $_SESSION['id'] = $row['Id'];
+            print_r($_SESSION);
             header("Location:loginsuccess.php");
         } else {
             $error = "we could not find a user with the email and password.Sign Up!!";
