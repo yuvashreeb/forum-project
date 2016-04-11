@@ -1,8 +1,10 @@
 <?php
-include ('connection.php');
-include ('login.php');
-$query = "select FirstName, LastName, EmailAddress from RegisteredUser where id='" . $_SESSION['id'] . "' LIMIT 1";
-$result = mysqli_query($link, $query);
+include("connection.php");
+include 'login.php';
+include 'adminlogin.php';
+$sql = "SELECT Id,FirstName,LastName,EmailAddress FROM RegisteredUser";
+$result = mysqli_query($link, $sql);
+$Row = mysqli_fetch_all($result);
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -13,11 +15,35 @@ $result = mysqli_query($link, $query);
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link type="text/css" href="css/bootstrap.min.css" rel="stylesheet">
         <link type="text/css" rel="stylesheet" href="css/style.css">
+        <link href="https://cdn.datatables.net/1.10.11/css/jquery.dataTables.min.css" rel="stylesheet">
+
         <script type="text/javascript" src="js/jquery-2.2.2.min.js"></script>
         <script type="text/javascript" src="js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="https://cdn.datatables.net/1.10.11/js/jquery.dataTables.min.js"></script>
         <script type="text/javascript" src="js/validation.js"></script>
+        <script>
+            var Data =<?php echo json_encode($Row); ?>;
+            $(document).ready(function () {
+                $('#example').DataTable({
+                    data: Data,
+                    columns: [
+                        {title: "Id"},
+                        {title: "FirstName"},
+                        {title: "LastName"},
+                        {title: "EmailAddress"}
+                    ]
+                });
+                var table = $('#example').DataTable();
+
+                $('#example tbody').on('click', 'tr', function () {
+                    var data = table.row(this).data();
+                    window.location.href="view.php?Id="+data[0];
+                });
+            });
+
+        </script>
     </head>
-    <body> 
+    <body data-type="scroll"> 
         <div class="navbar navbar-inverse">
             <div class="container-fluid">
                 <div class="navbar-header">
@@ -30,7 +56,7 @@ $result = mysqli_query($link, $query);
                 </div>
                 <div class="pull-right">
                     <div class="collapse navbar-collapse">
-                        <ul class="nav navbar-nav">>
+                        <ul class="nav navbar-nav">
                             <li class="dropdown">
                                 <a class="dropdown-toggle" data-toggle="dropdown" href="">Users
                                     <span class="caret"></span></a>
@@ -45,8 +71,13 @@ $result = mysqli_query($link, $query);
                 </div>
             </div>
         </div>
-        <div class="container contentContainer">
-            
+        <div class="container UserContainer">
+            <div class="container childContainer">
+                <form class="form-group"  id="UserProfile" method="post" enctype="multipart/form-data" >
+                    <table id="example" class="display" width="100%">
+                    </table>
+                </form>   
+            </div>
         </div>
     </body>
 </html>

@@ -1,6 +1,4 @@
-<?php
-include("connection.php");
-?>
+
 <!DOCTYPE HTML>
 <html>
     <head lang="en">
@@ -13,6 +11,7 @@ include("connection.php");
         <script type="text/javascript" src="js/jquery-2.2.2.min.js"></script>
         <script type="text/javascript" src="js/bootstrap.min.js"></script>
         <script type="text/javascript" src="js/validation.js"></script>
+        
     </head>
     <body> 
         <div class="navbar navbar-inverse">
