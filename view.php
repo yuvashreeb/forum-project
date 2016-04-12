@@ -30,14 +30,14 @@
                     <div class="collapse navbar-collapse">
                         <ul class="nav navbar-nav">
                             <li class="dropdown">
-                                <a class="dropdown-toggle" data-toggle="dropdown" href="">Users
+                                <a class="dropdown-toggle" data-toggle="dropdown" href=""><span class="glyphicon glyphicon-user"></span>Users
                                     <span class="caret"></span></a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="userlist.php">Users List</a></li>
-                                    <li><a href="createuser.php">New User</a></li>
+                                    <li><a href="userlist.php"><span class="glyphicon glyphicon-list"></span>Users List</a></li>
+                                    <li><a href="createuser.php"><span class="glyphicon glyphicon-plus"></span>New User</a></li>
                                 </ul>
                             </li>
-                            <li><a href="admin.php?logout=1">Log Out</a></li>
+                            <li><a href="admin.php?logout=1"><span class="glyphicon glyphicon-log-out"></span>Log Out</a></li>
                         </ul>
                     </div>
                 </div>
@@ -99,10 +99,10 @@
                     </div>
                     <br/> 
 
-                    <input type="button" class="btn btn-success" id="Edit" value="Edit"/>
-                    <input type="button" class="btn btn-success" id="Delete" value="Delete"/>
+                    <input type="button" class="btn btn-success" id="Edit" value="Edit"/><span class="glyphicon glyphicon-edit"></span><br><br>
+                    <input type="button" class="btn btn-success" id="Delete" value="Delete"/><span class="glyphicon glyphicon-trash"></span>
                     <!--<a href="map.php?Id=<?php echo $id; ?>">Click Here To View Location</a>-->
-                    <a href="#" class="read" data-toggle="modal" data-target="#myModal" data-backdrop="static">Click Here to view location</a>
+                    <br><br> <a href="#" class="read" data-toggle="modal" data-target="#myModal" data-backdrop="static">Click Here to view location<span class="glyphicon glyphicon-map-marker"></span></a>
 
                 </form> 
             </div>

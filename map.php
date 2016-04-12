@@ -40,7 +40,7 @@ echo $variable;
                     {
                         var mapProp = {
                             center: myCenter,
-                            zoom: 5,
+                            zoom: 12,
                             mapTypeId: google.maps.MapTypeId.ROADMAP
                         };
 
@@ -48,6 +48,7 @@ echo $variable;
 
                         var marker = new google.maps.Marker({
                             position: myCenter,
+                            animation:google.maps.Animation.BOUNCE,
                             title: 'Click to zoom'
                         });
 

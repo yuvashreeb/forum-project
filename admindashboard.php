@@ -28,14 +28,14 @@
                     <div class="collapse navbar-collapse">
                         <ul class="nav navbar-nav">>
                             <li class="dropdown">
-                                <a class="dropdown-toggle" data-toggle="dropdown" href="">Users
+                                <a class="dropdown-toggle" data-toggle="dropdown" href=""><span class="glyphicon glyphicon-user"></span>Users
                                     <span class="caret"></span></a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="userlist.php">Users List</a></li>
-                                    <li><a href="createuser.php">New User</a></li>
+                                    <li><a href="userlist.php"><span class="glyphicon glyphicon-list"></span>Users List</a></li>
+                                    <li><a href="createuser.php"><span class="glyphicon glyphicon-plus"></span>New User</a></li>
                                 </ul>
                             </li>
-                            <li><a href="admin.php?logout=1">Log Out</a></li>
+                            <li><a href="admin.php?logout=1"><span class="glyphicon glyphicon-log-out"></span>Log Out</a></li>
                         </ul>
                     </div>
                 </div>

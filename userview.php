@@ -44,16 +44,16 @@ $zipcode = $row[10];
                     <div class="collapse navbar-collapse">
                         <ul class="nav navbar-nav">>
                             <li class="dropdown">
-                                <a data-toggle="dropdown" class="dropdown-toggle" href="#">My Profile
+                                <a data-toggle="dropdown" class="dropdown-toggle" href="#"><span class="glyphicon glyphicon-user"></span>My Profile
                                     <span class="caret"></span></a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="editprofile.php">Edit Profile</a></li>
+                                    <li><a href="editprofile.php"><span class="glyphicon glyphicon-edit"></span>Edit Profile</a></li>
 
                                 </ul>
                             </li>
-                            <li><a href="">View Profile</a></li>
-                            <li><a href="changepassword.php">Change Password</a></li>
-                            <li><a href="user.php?logout=1">Log Out</a></li>
+                            <li><a href=""><span class="glyphicon glyphicon-eye-open"></span>View Profile</a></li>
+                            <li><a href="changepassword.php"><span class="glyphicon glyphicon-pencil"></span>Change Password</a></li>
+                            <li><a href="user.php?logout=1"><span class="glyphicon glyphicon-log-out"></span>Log Out</a></li>
                         </ul>
                     </div>
                 </div>
@@ -105,7 +105,7 @@ $zipcode = $row[10];
                             <textarea class="form-control" name="addressLineTwo" disabled><?php echo $addressLineTwo; ?></textarea>
                         </div>
                         <!--<a href="Map.php">Click Here To View Location</a><br>-->
-                        <a href="#" class="read" data-toggle="modal" data-target="#myModal" data-backdrop="static">Click Here to view location</a>
+                        <a href="#" class="read" data-toggle="modal" data-target="#myModal" data-backdrop="static">Click Here to view location<span class="glyphicon glyphicon-map-marker"></span></a>
                     </div>
                     <div class="row">
                         <div class="col-md-6 col-md-offset-3">
