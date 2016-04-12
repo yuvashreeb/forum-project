@@ -102,7 +102,7 @@
                     <input type="button" class="btn btn-success" id="Edit" value="Edit"/>
                     <input type="button" class="btn btn-success" id="Delete" value="Delete"/>
                     <!--<a href="map.php?Id=<?php echo $id; ?>">Click Here To View Location</a>-->
-                    <a href="#" class="read" data-toggle="modal" data-target="#myModal" >Click Here to view location</a>
+                    <a href="#" class="read" data-toggle="modal" data-target="#myModal" data-backdrop="static">Click Here to view location</a>
 
                 </form> 
             </div>

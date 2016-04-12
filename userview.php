@@ -105,7 +105,7 @@ $zipcode = $row[10];
                             <textarea class="form-control" name="addressLineTwo" disabled><?php echo $addressLineTwo; ?></textarea>
                         </div>
                         <!--<a href="Map.php">Click Here To View Location</a><br>-->
-                        <a href="#" class="read" data-toggle="modal" data-target="#myModal" >Click Here to view location</a>
+                        <a href="#" class="read" data-toggle="modal" data-target="#myModal" data-backdrop="static">Click Here to view location</a>
                     </div>
                     <div class="row">
                         <div class="col-md-6 col-md-offset-3">

@@ -16,48 +16,60 @@ echo $variable;
         </script>
         <script type="text/javascript">
 
-            var geocoder = new google.maps.Geocoder();
-            var address = "<?php echo $variable; ?>";
+           $(document).ready(function () {
+                var geocoder = new google.maps.Geocoder();
+                var address = "<?php echo $variable; ?>";
 
 
-            geocoder.geocode({'address': address}, function (results, status) {
+                geocoder.geocode({'address': address}, function (results, status) {
 
 
-                if (status == google.maps.GeocoderStatus.OK) {
-                    var latitude = results[0].geometry.location.lat();
-                    var longitude = results[0].geometry.location.lng();
+                    if (status == google.maps.GeocoderStatus.OK) {
+                        var latitude = results[0].geometry.location.lat();
+                        var longitude = results[0].geometry.location.lng();
 
-                }
+                    }
 
 
 
-                var myCenter = new google.maps.LatLng(latitude, longitude);
+                    var myCenter = new google.maps.LatLng(latitude, longitude);
 
-                function initialize()
-                {
-                    var mapProp = {
-                        center: myCenter,
-                        zoom: 5,
-                        mapTypeId: google.maps.MapTypeId.ROADMAP
-                    };
+                    function initialize()
+                    {
+                        var mapProp = {
+                            center: myCenter,
+                            zoom: 5,
+                            mapTypeId: google.maps.MapTypeId.ROADMAP
+                        };
 
-                    var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
+                        var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
 
-                    var marker = new google.maps.Marker({
-                        position: myCenter,
-                    });
+                        var marker = new google.maps.Marker({
+                            position: myCenter,
+                            title: 'Click to zoom'
+                        });
 
-                    marker.setMap(map);
-                }
+                        marker.setMap(map);
 
-                google.maps.event.addDomListener(window, 'load', initialize);
-                
-                $("#myModal").on("click","show.bs.modal",function(){
-                    google.maps.event.trigger(googlemap,"resize");
-                    return map.setcenter(mycenter);
+// Zoom to 9 when clicking on marker
+                        google.maps.event.addListener(marker, 'click', function () {
+                            map.setZoom(9);
+                            map.setCenter(marker.getPosition());
+
+                        });
+
+
+                        $("#myModal").on("shown.bs.modal", function () {
+                            google.maps.event.trigger(googleMap, "resize");
+                            return map.setCenter(myCenter);
+                        });
+
+                    }
+                    google.maps.event.addDomListener(window, 'load', initialize);
+
+
+
                 });
-
-
             });
 
         </script>

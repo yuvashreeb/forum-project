@@ -5,7 +5,7 @@ include 'login.php';
 $UserQuery = "SELECT AddressOne,AddressTwo FROM RegisteredUser WHERE Id='" . $_GET['Id'] . "' LIMIT 1";
 $UserResult = mysqli_query($link, $UserQuery);
 $Address = mysqli_fetch_array($UserResult);
-$variable = $Address['AddressOne'] . "&nbsp;" .$Address['AddressTwo'] . "&nbsp;" . $Address['City'] . "&nbsp;" . $Address['State'] . "&nbsp;" . $Address['Country'];
+$variable = $Address['AddressOne'] . "&nbsp;" . $Address['AddressTwo'] . "&nbsp;" . $Address['City'] . "&nbsp;" . $Address['State'];
 echo $variable;
 ?>
 
@@ -18,49 +18,60 @@ echo $variable;
             src="http://maps.googleapis.com/maps/api/js">
         </script>
         <script type="text/javascript">
-
-            var geocoder = new google.maps.Geocoder();
-            var address = "<?php echo $variable; ?>";
-
-
-            geocoder.geocode({'address': address}, function (results, status) {
+            $(document).ready(function () {
+                var geocoder = new google.maps.Geocoder();
+                var address = "<?php echo $variable; ?>";
 
 
-                if (status == google.maps.GeocoderStatus.OK) {
-                    var latitude = results[0].geometry.location.lat();
-                    var longitude = results[0].geometry.location.lng();
-
-                }
+                geocoder.geocode({'address': address}, function (results, status) {
 
 
+                    if (status == google.maps.GeocoderStatus.OK) {
+                        var latitude = results[0].geometry.location.lat();
+                        var longitude = results[0].geometry.location.lng();
 
-                var myCenter = new google.maps.LatLng(latitude, longitude);
+                    }
 
-                function initialize()
-                {
-                    var mapProp = {
-                        center: myCenter,
-                        zoom: 5,
-                        mapTypeId: google.maps.MapTypeId.ROADMAP
-                    };
 
-                    var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
 
-                    var marker = new google.maps.Marker({
-                        position: myCenter,
-                    });
+                    var myCenter = new google.maps.LatLng(latitude, longitude);
 
-                    marker.setMap(map);
-                }
+                    function initialize()
+                    {
+                        var mapProp = {
+                            center: myCenter,
+                            zoom: 5,
+                            mapTypeId: google.maps.MapTypeId.ROADMAP
+                        };
 
-                google.maps.event.addDomListener(window, 'load', initialize);
-                
-                $("#myModal").on("click","show.bs.modal",function(){
-                    google.maps.event.trigger(googlemap,"resize");
-                    return map.setcenter(mycenter);
+                        var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
+
+                        var marker = new google.maps.Marker({
+                            position: myCenter,
+                            title: 'Click to zoom'
+                        });
+
+                        marker.setMap(map);
+
+// Zoom to 9 when clicking on marker
+                        google.maps.event.addListener(marker, 'click', function () {
+                            map.setZoom(9);
+                            map.setCenter(marker.getPosition());
+
+                        });
+
+
+                        $("#myModal").on("shown.bs.modal", function () {
+                            google.maps.event.trigger(googleMap, "resize");
+                            return map.setCenter(myCenter);
+                        });
+
+                    }
+                    google.maps.event.addDomListener(window, 'load', initialize);
+
+
+
                 });
-
-
             });
 
         </script>
