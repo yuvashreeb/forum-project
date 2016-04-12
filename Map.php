@@ -51,6 +51,11 @@ echo $variable;
                 }
 
                 google.maps.event.addDomListener(window, 'load', initialize);
+                
+                $("#myModal").on("click","show.bs.modal",function(){
+                    google.maps.event.trigger(googlemap,"resize");
+                    return map.setcenter(mycenter);
+                });
 
 
             });

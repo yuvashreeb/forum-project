@@ -1,7 +1,14 @@
 <?php
-include("connection.php");
-include ("login.php");
-include("update.php");
+include 'login.php';
+include 'adminlogin.php';
+include 'adminuser.php';
+$UserQuery = "SELECT * FROM RegisteredUser WHERE Id='" . $_GET['Id'] . "' LIMIT 1";
+$UserResult = mysqli_query($link, $UserQuery);
+$row = mysqli_fetch_array($UserResult);
+$UserName = $row['FirstName'];
+$UserLastName = $row['LastName'];
+$UserEmail = $row['EmailAddress'];
+$UserMobile = $row['MobileNumber'];
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -15,8 +22,9 @@ include("update.php");
         <script type="text/javascript" src="js/jquery-2.2.2.min.js"></script>
         <script type="text/javascript" src="js/bootstrap.min.js"></script>
         <script type="text/javascript" src="js/validation.js"></script>
+
     </head>
-    <body>
+    <body data-type="scroll"> 
         <div class="navbar navbar-inverse">
             <div class="container-fluid">
                 <div class="navbar-header">
@@ -27,26 +35,19 @@ include("update.php");
                     </button>
                     <a href="" class="navbar-brand">FORUM MANAGEMENT</a>
                 </div>
-                <div class="pull-left">
+                <div class="pull-right">
                     <div class="collapse navbar-collapse">
-                        <ul class="nav navbar-nav">>
+                        <ul class="nav navbar-nav">
                             <li class="dropdown">
-                                <a data-toggle="dropdown" class="dropdown-toggle" href="#">My Profile
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="">Users
                                     <span class="caret"></span></a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="editprofile.php">Edit Profile</a></li>
+                                    <li><a href="userlist.php">Users List</a></li>
+                                    <li><a href="createuser.php">New User</a></li>
                                 </ul>
                             </li>
-                            <li><a href="userview.php">View Profile</a></li>
-                            <li><a href="changepassword.php">Change Password</a></li>
-                            <li><a href="user.php?logout=1">Log Out</a></li>
+                            <li><a href="admin.php?logout=1">Log Out</a></li>
                         </ul>
-                    </div>
-                </div>
-                <div class="navbar-form navbar-right">
-                    <div class="sign">
-                        <?php echo $Name; ?>
-                        <img src="images/user.png" />
                     </div>
                 </div>
             </div>
@@ -56,25 +57,25 @@ include("update.php");
                 <div class="row">
                     <div class="col-md-6 col-md-offset-2 marginTop">
                         First Name
-                        <input type="text" id="FirstName" name="FirstName" class="form-control" value="<?php echo $Name; ?>" readonly/><br>
+                        <input type="text" id="FirstName" name="FirstName" class="form-control" value="<?php echo $UserName; ?>" readonly/><br>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-6 col-md-offset-2">
                         Last Name
-                        <input type="text" id="LastName" name="LastName" class="form-control" readonly value="<?php echo $LastName; ?>"/><br>
+                        <input type="text" id="LastName" name="LastName" class="form-control" readonly value="<?php echo $UserLastName; ?>"/><br>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-6 col-md-offset-2">
                         Email Id
-                        <input type="Email" id="EmailAddress" name="EmailAddress" class="form-control" readonly value="<?php echo $EmailAddress; ?>"/><br>
+                        <input type="Email" id="EmailAddress" name="EmailAddress" class="form-control" readonly value="<?php echo $UserEmail; ?>"/><br>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-6 col-md-offset-2">
                         Mobile Number
-                        <input type="text" id="MobileNumber" name="MobileNumber" maxlength="10" class="form-control" readonly value="<?php echo $MobileNumber; ?>"/><br>
+                        <input type="text" id="MobileNumber" name="MobileNumber" maxlength="10" class="form-control" readonly value="<?php echo $UserMobile; ?>"/><br>
                         <span id="mobile_error" > </span><br />
                     </div>
                 </div>
@@ -114,14 +115,14 @@ include("update.php");
                     </div>
                 </div>
                 <div class="col-md-6 col-md-offset-2">
-                    <input type="submit" value="Update" class="btn btn-success marginTop" name="Update">
+                    <input type="submit" value="UpdateUser" class="btn btn-success marginTop" name="UpdateUser">
                 </div>
             </form>
-            <?php
-            if ($msg) {
-                echo '<div class="alert alert-success">' . addslashes($msg) . '</div>';
-            }
-            ?>
         </div>
+        <?php
+        if ($msg) {
+            echo '<div class="alert alert-success">' . addslashes($msg) . '</div>';
+        }
+        ?>
     </body>
 </html>

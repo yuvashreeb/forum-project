@@ -1,64 +1,103 @@
 function InvalidFirstName(textbox) {
-    
+
     if (textbox.value == '') {
         textbox.setCustomValidity('Please Enter First Name');
-    }
-    else {
+    } else {
         textbox.setCustomValidity('');
     }
     return true;
 }
 
 function InvalidLastName(textbox) {
-    
+
     if (textbox.value == '') {
         textbox.setCustomValidity('Please Enter Last Nme');
-    }
-    else {
+    } else {
         textbox.setCustomValidity('');
     }
     return true;
 }
 
 function InvalidEmail(textbox) {
-    
+
     if (textbox.value == '') {
         textbox.setCustomValidity('Please Enter Email Id');
-    }
-    else {
+    } else {
         textbox.setCustomValidity('');
     }
     return true;
 }
 
 function InvalidPassword(textbox) {
-    
+
     if (textbox.value == '') {
         textbox.setCustomValidity('Please Enter Password');
-    }
-    else {
+    } else {
         textbox.setCustomValidity('');
     }
     return true;
 }
 
 function InvalidConfirmPassword(textbox) {
-    
+
     if (textbox.value == '') {
         textbox.setCustomValidity('Please Enter Confirm Password');
-    }
-    else {
+    } else {
         textbox.setCustomValidity('');
     }
     return true;
 }
 
 function InvalidMobileNumber(textbox) {
-    
+
     if (textbox.value == '') {
         textbox.setCustomValidity('Please Enter MobileNumber');
+    } else {
+        textbox.setCustomValidity('');
     }
-    else {
+    return true;
+}
+function InvalidAddress(textbox) {
+
+    if (textbox.value == '') {
+        textbox.setCustomValidity('Please Enter Address');
+    } else {
+        textbox.setCustomValidity('');
+    }
+    return true;
+}
+function InvalidCity(textbox) {
+
+    if (textbox.value == '') {
+        textbox.setCustomValidity('Please Enter City');
+    } else {
+        textbox.setCustomValidity('');
+    }
+    return true;
+}
+function InvalidState(textbox) {
+
+    if (textbox.value == '') {
+        textbox.setCustomValidity('Please Enter State');
+    } else {
+        textbox.setCustomValidity('');
+    }
+    return true;
+}
+function InvalidCountry(textbox) {
+
+    if (textbox.value == '') {
+        textbox.setCustomValidity('Please Enter Country');
+    } else {
+        textbox.setCustomValidity('');
+    }
+    return true;
+}
+function InvalidZipCode(textbox) {
+
+    if (textbox.value == '') {
+        textbox.setCustomValidity('Please Enter ZipCode');
+    } else {
         textbox.setCustomValidity('');
     }
     return true;
@@ -110,6 +149,27 @@ $(document).ready(function () {
         }
 
     });
+    $("#Password").blur(function () {
+
+        var ValidatePassword = $("#Password").val();
+        if (ValidatePassword.length < 8)
+        {
+            $("#passworderror").html("Password should be atleast 8 characters and one captial letter");
+        } else {
+            $("#passworderror").html("");
+        }
+
+    });
+    $("#ConfirmPassword").blur(function ()
+    {
+        var ValidateconfirmPassword = $("#ConfirmPassword").val();
+        if (ValidateconfirmPassword != $("#Password").val())
+        {
+            $("#ConfirmPassworderror").html("Confirm Password Should be same as Password")
+        } else {
+            $("#ConfirmPassworderror").html("");
+        }
+    });
     $("#City").blur(function () {
         var last = $("#City").val();
         if (last === "")
@@ -136,13 +196,13 @@ $(document).ready(function () {
     });
     $("#ZipCode").blur(function () {
         var last = $("#ZipCode").val();
-        if (last === "")
+        /*if (last === "")
         {
             $("#ziperror").html("enter ur zipcode");
-        }
+        }*/
         if (last.length !== 6)
         {
-            $('#ziperror').html("please enter a valid zipcode");
+            $('#ziperror').html("please enter 6digit zipcode");
             error = 1;
 
         } else if (!($.isNumeric(last)))

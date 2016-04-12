@@ -81,8 +81,8 @@
                                         <td><?php echo $row[1] ?></td>
                                         <td><?php echo $row[2] ?></td>
                                         <td><?php echo $row[3] ?></td>
-                                        <td><?php echo $row[4] ?></td>
                                         <td><?php echo $row[5] ?></td>
+                                        <td><?php echo $row[4] ?></td>
                                         <td><?php echo $row[6] ?></td>
                                         <td><?php echo $row[7] ?></td>
                                         <td><?php echo $row[8] ?></td>
@@ -97,24 +97,35 @@
                             </tbody>
                         </table>
                     </div>
-                    <a href="Edit.php?Id=<?php echo $id; ?>">Edit</a>    
-                    <a href="Delete.php?Id=<?php echo $id; ?>">Delete</a>
                     <br/> 
 
                     <input type="button" class="btn btn-success" id="Edit" value="Edit"/>
                     <input type="button" class="btn btn-success" id="Delete" value="Delete"/>
-                    <a href="Map.php">Click Here To View Location</a>
+                    <!--<a href="map.php?Id=<?php echo $id; ?>">Click Here To View Location</a>-->
                     <a href="#" class="read" data-toggle="modal" data-target="#myModal" >Click Here to view location</a>
 
                 </form> 
-
             </div>
-
         </div>
+        <script>
+            $(document).ready(function () {
+                $("#Edit").click(function () {
+
+                    window.location.href = "edit.php?Id=<?php echo $id; ?>";
+                });
+
+            });
+            $(document).ready(function () {
+                $("#Delete").click(function () {
+
+                    window.location.href = "Delete.php?Id=<?php echo $id; ?>";
+                });
+
+            });
+        </script>
 
         <div class="modal fade" id="myModal" role="dialog">
             <div class="modal-dialog">
-
                 <!-- Modal content-->
                 <div class="modal-content">
                     <div class="modal-header">
@@ -123,9 +134,8 @@
                     </div>
                     <div class="modal-body">
                         <?php
-                        include 'Map.php';
+                        include 'map.php';
                         ?>
-
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

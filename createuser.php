@@ -61,23 +61,23 @@ include("adminuser.php");
             </div>
             <div class="col-md-6 col-offset-3 marginTop">
                 <label for="LastName">Last Name</label>
-                <input type="text" id="LastName" name="LastName" placeholder="Enter LastName" class="form-control" required=""/>
+                <input type="text" id="LastName" name="LastName" placeholder="Enter LastName" class="form-control" required="required" oninvalid="InvalidLastName(this);" oninput="InvalidLastName(this);"/><span id="lastnameerror" class="red"></span><br />
 
             </div>
             <div class="col-md-6 col-offset-3 marginTop">
                 
                 <label for=EmailAddresss>Email Address</label>
-                <input type="email" id="EmailIAddress" name="EmailAddress" placeholder="Enter EmailAddresss" class="form-control"/>
+                <input type="email" id="EmailIAddress" name="EmailAddress" placeholder="Enter EmailAddresss" class="form-control" required="required" oninvalid="InvalidEmail(this);" oninput="InvalidEmail(this);"/>
             </div>
             <div class="col-md-6 col-offset-3 marginTop">
                 
                 <label for="MobileNumber">Mobile  Number</label>
-                <input type="text" id="MobileNumber" name="MobileNumber" placeholder="Enter MobileNumber" maxlength="10" class="form-control" />
+                <input type="text" id="MobileNumber" name="MobileNumber" placeholder="Enter MobileNumber" maxlength="10" class="form-control" required="required" oninvalid="InvalidMobileNumber(this);" oninput="InvalidMobileNumber(this);"/><span id="MobileNumbererror" class="red"></span><br />
             </div>
             <div class="col-md-6 col-offset-3 marginTop">
 
                 <label for="Password">Password</label>
-                <input type="password" id="Password" name="Password" placeholder="Enter password" class="form-control"/>
+                <input type="password" id="Password" name="Password" placeholder="Enter password" class="form-control" required="required" oninvalid="InvalidPassword(this);" oninput="InvalidPassword(this);"/><span id="passworderror" class="red"></span><br />
 
                 <span id="Password_error"></span>
 
@@ -86,7 +86,7 @@ include("adminuser.php");
             <div class="col-md-6 col-offset-3 marginTop">
 
                 <label for="ConfirmPassword">Confirm Password</label>
-                <input type="password" id="ConfirmPassword" name="ConfirmPassword" placeholder="Enter confirmPassword" class="form-control"/>
+                <input type="password" id="ConfirmPassword" name="ConfirmPassword" placeholder="Enter confirmPassword" class="form-control" required="required" oninvalid="InvalidConfirmPassword(this);" oninput="InvalidConfirmPassword(this);"/><span id="ConfirmPassworderror" class="red"></span><br />
                 <span id="ConfirmPassword_error"></span>
 
 
@@ -94,36 +94,36 @@ include("adminuser.php");
             <div class="col-md-6 col-offset-3 marginTop">
                 
                 <label for="AddressOne">Address Line 1</label>
-                <textarea id="AddressOne" name="AddressOne" class="form-control" placeholder="Enter address1"></textarea>
+                <textarea id="AddressOne" name="AddressOne" class="form-control" placeholder="Enter address1" required="required" oninvalid="InvalidAddress(this);" oninput="InvalidAddress(this);"></textarea>
             </div>
 
             <div class="col-md-6 col-offset-3 marginTop">
                 
                 <label for="AddressTwo">Address Line 2</label>
-                <textarea id="AddressTwo" name="AddressTwo" class="form-control" placeholder="Enter address2"></textarea>
+                <textarea id="AddressTwo" name="AddressTwo" class="form-control" placeholder="Enter address2" required="required" oninvalid="InvalidAddress(this);" oninput="InvalidAddress(this);"></textarea>
             </div>
             <div class="col-md-6 col-offset-3 marginTop">
                
                 <label for="City">City</label>
-                <input type="text" id="City" name="City" class="form-control" placeholder="Enter city"/>
+                <input type="text" id="City" name="City" class="form-control" placeholder="Enter city" required="required" oninvalid="InvalidCity(this);" oninput="InvalidCity(this);"/><span id="cityerror" class="red"></span><br />
 
             </div>
             <div class="col-md-6 col-offset-3 marginTop">
                 
                 <label for="State">State</label>
-                <input type="text" id="State" name="State" class="form-control" placeholder="Enter state">
+                <input type="text" id="State" name="State" class="form-control" placeholder="Enter state" required="required" oninvalid="InvalidState(this);" oninput="InvalidState(this);"/><span id="stateerror" class="red"></span><br />
 
             </div>
             <div class="col-md-6 col-offset-3 marginTop">
                 
                 <label for="Country">Country</label>
-                <input type="text" id="Country" name="Country" class="form-control" placeholder="Enter country"/>
+                <input type="text" id="Country" name="Country" class="form-control" placeholder="Enter country" required="required" oninvalid="InvalidCountry(this);" oninput="InvalidCountry(this);"/><span id="countryerror" class="red"></span><br/>
 
             </div>
             <div class="col-md-6 col-offset-3 marginTop">
                 
                 <label for="ZipCode">ZipCode</label>
-                <input type="text" id="ZipCode" name="ZipCode" class="form-control" maxlength="6" placeholder="Enter zipcode"/>
+                <input type="text" id="ZipCode" name="ZipCode" class="form-control" maxlength="6" placeholder="Enter zipcode" required="required" oninvalid="InvalidZipCode(this);" oninput="InvaliZipCode(this);"/><span id="ziperror" class="red"></span><br/>
 
             </div>
 

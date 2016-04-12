@@ -104,7 +104,8 @@ $zipcode = $row[10];
                             <label>Address Line 2:</label>
                             <textarea class="form-control" name="addressLineTwo" disabled><?php echo $addressLineTwo; ?></textarea>
                         </div>
-                        <a href="Map.php">Click Here To View Location</a>
+                        <!--<a href="Map.php">Click Here To View Location</a><br>-->
+                        <a href="#" class="read" data-toggle="modal" data-target="#myModal" >Click Here to view location</a>
                     </div>
                     <div class="row">
                         <div class="col-md-6 col-md-offset-3">
@@ -132,6 +133,26 @@ $zipcode = $row[10];
                     </div>
                 </div>
             </form>
+        </div>
+    </div>
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">X</button>
+                    <h4 class="modal-title">Location</h4>
+                </div>
+                <div class="modal-body">
+                    <?php
+                    include 'Map.php';
+                    ?>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
         </div>
     </div>
 </body>
