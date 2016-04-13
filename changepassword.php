@@ -2,6 +2,11 @@
 error_reporting(0);
 include('login.php');
 include("passwordchange.php");
+session_start();
+$id=$_SESSION['id'];
+if(!$id){
+    header("location:user.php");
+}
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -16,7 +21,7 @@ include("passwordchange.php");
         <script type="text/javascript" src="js/bootstrap.min.js"></script>
         <script type="text/javascript" src="js/validation.js"></script>
     </head>
-    <body>
+    <body onbeforeunload="return myFunction()">
         <div class="navbar navbar-inverse">
             <div class="container-fluid">
                 <div class="navbar-header">
@@ -67,11 +72,11 @@ include("passwordchange.php");
                         </div>
                         <div class="col-md-6 col-md-offset-2">
                             New Password
-                            <input type="password" id="NewPassword" name="NewPassword" class="form-control" required title="please enter new password"/>
+                            <input type="password" id="NewPassword" name="NewPassword" class="form-control" required="required" oninvalid="InvalidNewPassword(this);" oninput="InvalidNewPassword(this);"/><span id="Newpassworderror" class="red"></span>
                         </div>
                         <div class="col-md-6 col-md-offset-2">
                             Confirm Password
-                            <input type="password" id="ConfirmPassword" name="ConfirmPassword" class="form-control" required title="please enter confirm new password"/>
+                            <input type="password" id="NewConfirmPassword" name="NewConfirmPassword" class="form-control" required="required" oninvalid="InvalidNewConfirmPassword(this);" oninput="InvalidNewConfirmPassword(this);"/><span id="NewConfirmPassworderror" class="red"></span><br />
                         </div>
                         <div class="col-md-6 col-md-offset-2">
                             <input type="submit" value="ChangePassword" class="btn btn-success marginTop" name="ChangePassword">
@@ -85,5 +90,10 @@ include("passwordchange.php");
                 </div>
             </form>
         </div>
+        <script>
+            function myFunction() {
+                return "Do you Want to make any chnages";
+            }
+        </script>
     </body>
 </html>

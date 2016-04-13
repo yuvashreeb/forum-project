@@ -165,9 +165,30 @@ $(document).ready(function () {
         var ValidateconfirmPassword = $("#ConfirmPassword").val();
         if (ValidateconfirmPassword != $("#Password").val())
         {
-            $("#ConfirmPassworderror").html("Confirm Password Should be same as Password")
+            $("#ConfirmPassworderror").html("Confirm Password Should be same as above Password")
         } else {
             $("#ConfirmPassworderror").html("");
+        }
+    });
+    $("#NewPassword").blur(function () {
+
+        var ValidatePassword = $("#NewPassword").val();
+        if (ValidatePassword.length < 8)
+        {
+            $("#Newpassworderror").html("Password should be atleast 8 characters and one captial letter");
+        } else {
+            $("#Newpassworderror").html("");
+        }
+
+    });
+    $("#NewConfirmPassword").on("keyup",function ()
+    {
+        var ValidateconfirmPassword = $("#NewConfirmPassword").val();
+        if (ValidateconfirmPassword != $("#NewPassword").val())
+        {
+            $("#NewConfirmPassworderror").html("Confirm Password Should be same as above Password")
+        } else {
+            $("#NewConfirmPassworderror").html("");
         }
     });
     $("#City").blur(function () {

@@ -2,6 +2,11 @@
 include("connection.php");
 include ("login.php");
 include("update.php");
+session_start();
+$id=$_SESSION['id'];
+if(!$id){
+    header("location:user.php");
+}
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -16,7 +21,7 @@ include("update.php");
         <script type="text/javascript" src="js/bootstrap.min.js"></script>
         <script type="text/javascript" src="js/validation.js"></script>
     </head>
-    <body>
+    <body onbeforeunload="return myFunction()">
         <div class="navbar navbar-inverse">
             <div class="container-fluid">
                 <div class="navbar-header">
@@ -123,5 +128,10 @@ include("update.php");
             }
             ?>
         </div>
+        <script>
+            function myFunction() {
+                return "Do you Want to make any chnages";
+            }
+        </script>
     </body>
 </html>

@@ -13,7 +13,7 @@ if (isset($_POST['submit'])) {
         $row = mysqli_fetch_array($result1);
         //print_r($row);
         if ($row) {
-            $_SESSION['id'] = $row['id'];
+            $_SESSION['id'] = $row['Id'];
             //print_r($_SESSION);
             header("Location:adminsuccess.php");
         } else {

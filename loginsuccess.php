@@ -12,10 +12,14 @@
         <script type="text/javascript" src="js/validation.js"></script>
         <?php
         include("login.php");
+        if($id=$_SESSION['id']){
         $Userquery = "SELECT FirstName FROM RegisteredUser WHERE Id='" . $_SESSION['id'] . "' LIMIT 1";
         $Userresult = mysqli_query($link, $Userquery);
         $row = mysqli_fetch_array($Userresult);
-        $Name = $row['FirstName'];
+        $Name = $row['FirstName'];}
+        else{
+            header("location:user.php");
+        }
         ?>
     </head>
     <body>

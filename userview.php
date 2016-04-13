@@ -2,20 +2,23 @@
 include('connection.php');
 include('login.php');
 session_start();
-$id = $_SESSION["id"];
-$query = "select * from RegisteredUser where Id='$id'";
-$result = mysqli_query($link, $query);
-$row = mysqli_fetch_row($result);
-$firstName = $row[1];
-$lastName = $row[2];
-$emailAddress = $row[3];
-$mobileNumber = $row[5];
-$addressLineOne = $row[6];
-$addressLineTwo = $row[7];
-$city = $row[8];
-$state = $row[9];
-$country = $row[11];
-$zipcode = $row[10];
+if ($id = $_SESSION["id"]) {
+    $query = "select * from RegisteredUser where Id='$id'";
+    $result = mysqli_query($link, $query);
+    $row = mysqli_fetch_row($result);
+    $firstName = $row[1];
+    $lastName = $row[2];
+    $emailAddress = $row[3];
+    $mobileNumber = $row[5];
+    $addressLineOne = $row[6];
+    $addressLineTwo = $row[7];
+    $city = $row[8];
+    $state = $row[9];
+    $country = $row[11];
+    $zipcode = $row[10];
+} else {
+    header("location:user.php");
+}
 ?>
 <html>
     <head lang="en">
@@ -29,7 +32,7 @@ $zipcode = $row[10];
         <script type="text/javascript" src="js/bootstrap.min.js"></script>
         <script type="text/javascript" src="js/validation.js"></script>
     </head>
-    <body>
+    <body onbeforeunload="return myFunction()">
         <div class="navbar navbar-inverse">
             <div class="container-fluid">
                 <div class="navbar-header">
@@ -155,5 +158,10 @@ $zipcode = $row[10];
 
         </div>
     </div>
+    <script>
+        function myFunction() {
+            return "Do you Want to make any chnages";
+        }
+    </script>
 </body>
 </html>

@@ -1,3 +1,4 @@
+
 <!DOCTYPE HTML>
 <html>
     <head lang="en">
@@ -13,7 +14,8 @@
         <?php
         session_start();
         include("connection.php");
-        $query = "SELECT Name FROM Admin WHERE id='" . $_SESSION['id'] . "' LIMIT 1";
+        include 'adminlogin.php';
+        $query = "SELECT Name FROM Admin WHERE Id='" . $_SESSION['id'] . "' LIMIT 1";
         $result = mysqli_query($link, $query);
         $row = mysqli_fetch_array($result);
         $Name = $row['Name'];
@@ -42,7 +44,7 @@
         <div class="container contentContainer">
             <div class="row center marginTop">
                 <div class="col-md-6 col-md-offset-3 center color ">
-                    <?php echo 'Welcome Yuva!<br>Please click the following link to see your dashboard'; ?>
+                    <?php echo 'Welcome ' .$Name.'!<br>Please click the following link to see your dashboard'; ?>
                     <a href="admindashboard.php">Click Here!</a>
                 </div>
             </div>

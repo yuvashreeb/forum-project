@@ -1,5 +1,4 @@
 <?php
-
 error_reporting(0);
 session_start();
 $Userquery = "SELECT * FROM RegisteredUser WHERE Id='" . $_SESSION['id'] . "' LIMIT 1";
