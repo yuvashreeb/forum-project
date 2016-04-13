@@ -1,10 +1,9 @@
 <?php
 include 'login.php';
 include 'update.php';
-$variable = $row['AddressTwo'] . "&nbsp;" . $row['City'] . "&nbsp;" . $row['State'] . "&nbsp;" . $row['Country'];
+$variable = $Row['AddressTwo'] . "&nbsp;" . $Row['City'] . "&nbsp;" . $Row['State'] . "&nbsp;" . $Row['Country'];
 echo $variable;
 ?>
-
 <!DOCTYPE html>
 <html>
     <head>
@@ -38,7 +37,7 @@ echo $variable;
                     {
                         var mapProp = {
                             center: myCenter,
-                            zoom: 5,
+                            zoom: 12,
                             mapTypeId: google.maps.MapTypeId.ROADMAP
                         };
 
@@ -50,8 +49,6 @@ echo $variable;
                         });
 
                         marker.setMap(map);
-
-// Zoom to 9 when clicking on marker
                         google.maps.event.addListener(marker, 'click', function () {
                             map.setZoom(9);
                             map.setCenter(marker.getPosition());
@@ -59,7 +56,7 @@ echo $variable;
                         });
 
 
-                        $("#myModal").on("shown.bs.modal", function () {
+                        $("#Map").on("shown.bs.modal", function () {
                             google.maps.event.trigger(googleMap, "resize");
                             return map.setCenter(myCenter);
                         });
@@ -76,6 +73,6 @@ echo $variable;
     </head>
     <body>
         
-        <div id="googleMap" style="width:500px;height:380px;"></div>
+        <div id="googleMap" style="height:380px;"></div>
     </body>
 </html>

@@ -2,27 +2,27 @@
 include('connection.php');
 include('login.php');
 session_start();
-if ($id = $_SESSION["id"]) {
-    $query = "select * from RegisteredUser where Id='$id'";
-    $result = mysqli_query($link, $query);
-    $row = mysqli_fetch_row($result);
-    $firstName = $row[1];
-    $lastName = $row[2];
-    $emailAddress = $row[3];
-    $mobileNumber = $row[5];
-    $addressLineOne = $row[6];
-    $addressLineTwo = $row[7];
-    $city = $row[8];
-    $state = $row[9];
-    $country = $row[11];
-    $zipcode = $row[10];
+if ($Id = $_SESSION["Id"]) {
+    $Query = "select * from RegisteredUser where Id='$Id'";
+    $Result = mysqli_query($Link, $Query);
+    $Row = mysqli_fetch_row($Result);
+    $FirstName = $Row[1];
+    $LastName = $Row[2];
+    $EmailAddress = $Row[3];
+    $MobileNumber = $Row[5];
+    $AddressLineOne = $Row[6];
+    $AddressLineTwo = $Row[7];
+    $City = $Row[8];
+    $State = $Row[9];
+    $Country = $Row[11];
+    $ZipCode = $Row[10];
 } else {
     header("location:user.php");
 }
 ?>
 <html>
     <head lang="en">
-        <title>FORUM MANAGEMENT</title>
+        <title>VIEW PROFILE</title>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -32,7 +32,7 @@ if ($id = $_SESSION["id"]) {
         <script type="text/javascript" src="js/bootstrap.min.js"></script>
         <script type="text/javascript" src="js/validation.js"></script>
     </head>
-    <body onbeforeunload="return myFunction()">
+    <body>
         <div class="navbar navbar-inverse">
             <div class="container-fluid">
                 <div class="navbar-header">
@@ -69,78 +69,74 @@ if ($id = $_SESSION["id"]) {
             </div>
         </div>
         <div class="container">
-            <div class="row">
-                <form class="form-horizontal" method="post">
-                    <div class="row">
-                        <div class="col-md-6 col-md-offset-3">
-                            <label>First Name:</label>
-                            <input type="text" class="form-control" value="<?php echo $firstName; ?>" disabled>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6 col-md-offset-3">
-                            <label>Last Name:</label>
-                            <input type="text" class="form-control" value='<?php echo $lastName; ?>' disabled>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6 col-md-offset-3">
-                            <label>Email Address:</label>
-                            <input type="text" class="form-control" value='<?php echo $emailAddress; ?>' disabled>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6 col-md-offset-3">
-                            <label>Mobile Number:</label>
-                            <input type="text" class="form-control" value='<?php echo $mobileNumber; ?>' disabled>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-md-6 col-md-offset-3">
-                            <label>Address Line 1:</label>
-                            <textarea class="form-control" name="addressLineOne" disabled><?php echo $addressLineOne; ?></textarea>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6 col-md-offset-3">
-                            <label>Address Line 2:</label>
-                            <textarea class="form-control" name="addressLineTwo" disabled><?php echo $addressLineTwo; ?></textarea>
-                        </div>
-                        <!--<a href="Map.php">Click Here To View Location</a><br>-->
-                        <a href="#" class="read" data-toggle="modal" data-target="#myModal" data-backdrop="static">Click Here to view location<span class="glyphicon glyphicon-map-marker"></span></a>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6 col-md-offset-3">
-                            <label>City:</label>
-                            <input type="text" class="form-control" value='<?php echo $city; ?>' disabled>
-
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6 col-md-offset-3">
-                            <label>State:</label>
-                            <input type="text" class="form-control" value='<?php echo $state; ?>' disabled>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6 col-md-offset-3>
-                             <label>Country:</label>
-                             <input type="text" class="form-control" value='<?php echo $country; ?>' disabled>
+            <form class="form-horizontal" method="post">
+                <div class="row">
+                    <div class="col-md-6 col-md-offset-3">
+                        <label>First Name:</label>
+                        <input type="text" class="form-control" value="<?php echo $FirstName; ?>" disabled>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-6 col-md-offset-3">
-                        <label>ZipCode:</label>
-                        <input type="tel" class="form-control" value='<?php echo $zipcode; ?>' disabled>
+                        <label>Last Name:</label>
+                        <input type="text" class="form-control" value='<?php echo $LastName; ?>' disabled>
                     </div>
                 </div>
-            </form>
-        </div>
+                <div class="row">
+                    <div class="col-md-6 col-md-offset-3">
+                        <label>Email Address:</label>
+                        <input type="text" class="form-control" value='<?php echo $EmailAddress; ?>' disabled>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 col-md-offset-3">
+                        <label>Mobile Number:</label>
+                        <input type="text" class="form-control" value='<?php echo $MobileNumber; ?>' disabled>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 col-md-offset-3">
+                        <label>Address Line 1:</label>
+                        <textarea class="form-control" name="addressLineOne" disabled><?php echo $AddressLineOne; ?></textarea>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 col-md-offset-3">
+                        <label>Address Line 2:</label>
+                        <textarea class="form-control" name="addressLineTwo" disabled><?php echo $AddressLineTwo; ?></textarea>
+                    </div>
+                    <a href="#" class="read" data-toggle="modal" data-target="#Map" data-backdrop="static">Click Here to view location<span class="glyphicon glyphicon-map-marker"></span></a>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 col-md-offset-3">
+                        <label>City:</label>
+                        <input type="text" class="form-control" value='<?php echo $City; ?>' disabled>
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 col-md-offset-3">
+                        <label>State:</label>
+                        <input type="text" class="form-control" value='<?php echo $State; ?>' disabled>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 col-md-offset-3">
+                         <label>Country:</label>
+                         <input type="text" class="form-control" value='<?php echo $Country; ?>' disabled>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3">
+                    <label>ZipCode:</label>
+                    <input type="tel" class="form-control" value='<?php echo $ZipCode; ?>' disabled>
+                </div>
+            </div>
+        </form>
     </div>
-    <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal fade" id="Map" role="dialog">
         <div class="modal-dialog">
-            <!-- Modal content-->
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">X</button>
@@ -158,10 +154,5 @@ if ($id = $_SESSION["id"]) {
 
         </div>
     </div>
-    <script>
-        function myFunction() {
-            return "Do you Want to make any chnages";
-        }
-    </script>
 </body>
 </html>

@@ -39,11 +39,11 @@ include ("login.php");
         </div>
         <div class="container">
             <?php
-            if ($error) {
-                echo '<div class="alert alert-danger">' . addslashes($error) . '</div>';
+            if ($Error) {
+                echo '<div class="alert alert-danger">' . addslashes($Error) . '</div>';
             }
-            if ($msg) {
-                echo '<div class="alert alert-success">' . addslashes($msg) . '</div>';
+            if ($Msg) {
+                echo '<div class="alert alert-success">' . addslashes($Msg) . '</div>';
             }
             ?>
             <div class="col-md-10 col-md-offset-2 center">
@@ -53,13 +53,13 @@ include ("login.php");
                     <div class="row">
                         <div class="col-md-6 col-md-offset-2 marginTop">
                             First Name
-                            <input type="text" id="FirstName" name="FirstName" placeholder="Enter FirstName" class="form-control " value="<?php if (isset($_POST['FirstName'])) echo addslashes($_POST['FirstName']); ?>" required="required" oninvalid="InvalidFirstName(this);" oninput="InvalidFirstName(this);" /><span id="firstnameerror" class="red"> </span><br />
+                            <input type="text" id="FirstName" name="FirstName" placeholder="Enter FirstName" class="form-control " value="<?php if (isset($_POST['FirstName'])) echo addslashes($_POST['FirstName']); ?>" required="required" oninvalid="InvalidFirstName(this);" oninput="InvalidFirstName(this);" /><span id="FirstNameError" class="red"> </span><br />
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-6 col-md-offset-2">
                             Last Name
-                            <input type="text" id="LastName" name="LastName" placeholder="Enter LastName" class="form-control" value="<?php if (isset($_POST['LastName'])) echo addslashes($_POST['LastName']); ?>" required="required" oninvalid="InvalidLastName(this);" oninput="InvalidLastName(this);"/><span id="lastnameerror" class="red"></span><br />
+                            <input type="text" id="LastName" name="LastName" placeholder="Enter LastName" class="form-control" value="<?php if (isset($_POST['LastName'])) echo addslashes($_POST['LastName']); ?>" required="required" oninvalid="InvalidLastName(this);" oninput="InvalidLastName(this);"/><span id="LastNameError" class="red"></span><br />
                         </div>
                     </div>
                     <div class="row">
@@ -71,19 +71,19 @@ include ("login.php");
                     <div class="row">
                         <div class="col-md-6 col-md-offset-2">
                             Password
-                            <input type="Password" id="Password" name="Password" placeholder="Enter Password" class="form-control" value="<?php if (isset($_POST['Password'])) echo addslashes($_POST['Password']); ?>" required="required" oninvalid="InvalidPassword(this);" oninput="InvalidPassword(this);"/><span id="passworderror" class="red"></span><br />
+                            <input type="Password" id="Password" name="Password" placeholder="Enter Password" class="form-control" value="<?php if (isset($_POST['Password'])) echo addslashes($_POST['Password']); ?>" required="required" oninvalid="InvalidPassword(this);" oninput="InvalidPassword(this);"/><span id="PasswordError" class="red"></span><br />
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-6 col-md-offset-2">
                             Confirm Password
-                            <input type="password" id="ConfirmPassword" name="ConfirmPassword" placeholder="ConfirmPassword" class="form-control" value="<?php if (isset($_POST['ConfirmPassword'])) echo addslashes($_POST['ConfirmPassword']); ?>" required="required" oninvalid="InvalidConfirmPassword(this);" oninput="InvalidConfirmPassword(this);"/><span id="ConfirmPassworderror" class="red"></span><br />
+                            <input type="password" id="ConfirmPassword" name="ConfirmPassword" placeholder="ConfirmPassword" class="form-control" value="<?php if (isset($_POST['ConfirmPassword'])) echo addslashes($_POST['ConfirmPassword']); ?>" required="required" oninvalid="InvalidConfirmPassword(this);" oninput="InvalidConfirmPassword(this);"/><span id="ConfirmPasswordError" class="red"></span><br />
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-6 col-md-offset-2">
                             Mobile Number
-                            <input type="text" id="MobileNumber" name="MobileNumber" placeholder="Enter Mobile Number" maxlength="10" class="form-control" value="<?php if (isset($_POST['MobileNumber'])) echo addslashes($_POST['MobileNumber']); ?>" required="required" oninvalid="InvalidMobileNumber(this);" oninput="InvalidMobileNumber(this);"/><span id="MobileNumbererror" class="red"></span><br />
+                            <input type="text" id="MobileNumber" name="MobileNumber" placeholder="Enter Mobile Number" maxlength="10" class="form-control" value="<?php if (isset($_POST['MobileNumber'])) echo addslashes($_POST['MobileNumber']); ?>" required="required" oninvalid="InvalidMobileNumber(this);" oninput="InvalidMobileNumber(this);"/><span id="MobileNumberError" class="red"></span><br />
                             <span id="mobile_error" > </span><br />
                         </div>
                     </div>

@@ -28,8 +28,8 @@ include ("adminlogin.php");
                 <div class="collapse navbar-collapse">
                     <form class="navbar-form navbar-right" method="post">
                         <div class="form-group">
-                            <input type="email" name="adminemail" class="form-control" placeholder="Email Id" value="<?php if (isset($_POST['adminemail'])) echo addslashes($_POST['adminemail']); ?>" required=""/>
-                            <input type="password" name="adminpassword" class="form-control" placeholder="Password" value="<?php if (isset($_POST['adminpassword'])) echo addslashes($_POST['adminpassword']); ?>"/>
+                            <input type="email" name="adminemail" class="form-control" placeholder="Email Id" value="<?php if (isset($_POST['adminemail'])) echo addslashes($_POST['adminemail']); ?>" required="required" oninvalid="InvalidEmail(this);" oninput="InvalidEmail(this);"/>
+                            <input type="password" name="adminpassword" class="form-control" placeholder="Password" value="<?php if (isset($_POST['adminpassword'])) echo addslashes($_POST['adminpassword']); ?>" required="required" oninvalid="InvalidPassword(this);" oninput="InvalidPassword(this);"/>
                             <input type="submit" class="btn btn-success" name="submit" value="Log In">
                         </div>
                     </form>
@@ -38,8 +38,8 @@ include ("adminlogin.php");
         </div>
         <div class="container-fluid">
             <?php
-            if ($error) {
-                echo '<div class="alert alert-danger">' . addslashes($error) . '</div>';
+            if ($Error) {
+                echo '<div class="alert alert-danger">' . addslashes($Error) . '</div>';
             }
             ?>
             <img src="images/admin.jpg" alt="yuva" height="570px" width="100%">

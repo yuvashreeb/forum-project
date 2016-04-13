@@ -3,15 +3,15 @@ include("connection.php");
 include ("login.php");
 include("update.php");
 session_start();
-$id=$_SESSION['id'];
-if(!$id){
+$Id=$_SESSION['Id'];
+if(!$Id){
     header("location:user.php");
 }
 ?>
 <!DOCTYPE HTML>
 <html>
     <head lang="en">
-        <title>FORUM MANAGEMENT</title>
+        <title>EDIT PROFILE</title>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -21,7 +21,7 @@ if(!$id){
         <script type="text/javascript" src="js/bootstrap.min.js"></script>
         <script type="text/javascript" src="js/validation.js"></script>
     </head>
-    <body onbeforeunload="return myFunction()">
+    <body>
         <div class="navbar navbar-inverse">
             <div class="container-fluid">
                 <div class="navbar-header">
@@ -57,6 +57,11 @@ if(!$id){
             </div>
         </div>
         <div class="container contentContainer">
+            <?php
+            if ($Msg) {
+                echo '<div class="alert alert-success">' . addslashes($Msg) . '</div>';
+            }
+            ?>
             <form class="form-group"  id="registration" method="post">
                 <div class="row">
                     <div class="col-md-6 col-md-offset-2 marginTop">
@@ -98,40 +103,33 @@ if(!$id){
                 <div class="row">
                     <div class="col-md-6 col-md-offset-2">
                         City:
-                        <input type="text" id="City" name="City" class="form-control" required="required" oninvalid="InvalidCity(this);" oninput="InvalidCity(this);"/><span id="cityerror" class="red"></span><br />
+                        <input type="text" id="City" name="City" class="form-control" required="required" oninvalid="InvalidCity(this);" oninput="InvalidCity(this);"/><span id="CityError" class="red"></span><br />
                     </div>
                     <div class="col-md-6 col-md-offset-2">
                         State:
-                        <input type="text" id="State" name="State" class="form-control" required="required" oninvalid="InvalidState(this);" oninput="InvalidState(this);"/><span id="stateerror" class="red"></span><br />
+                        <input type="text" id="State" name="State" class="form-control" required="required" oninvalid="InvalidState(this);" oninput="InvalidState(this);"/><span id="StateError" class="red"></span><br />
 
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-6 col-md-offset-2">
                         Country:
-                        <input type="text" name="Country" id="Country" class="form-control" required="required" oninvalid="InvalidCountry(this);" oninput="InvalidCountry(this);"/><span id="countryerror" class="red"></span><br/>
+                        <input type="text" name="Country" id="Country" class="form-control" required="required" oninvalid="InvalidCountry(this);" oninput="InvalidCountry(this);"/><span id="CountryError" class="red"></span><br/>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-6 col-md-offset-2">
                         Zip Code:
-                        <input type="text" id="ZipCode" name="ZipCode" class="form-control" maxlength="6" required="required" oninvalid="InvalidZipCode(this);" oninput="InvaliZipCode(this);"/><span id="ziperror" class="red"></span><br/>
+                        <input type="text" id="ZipCode" name="ZipCode" class="form-control" maxlength="6" required="required" oninvalid="InvalidZipCode(this);" oninput="InvaliZipCode(this);"/><span id="ZipError" class="red"></span><br/>
                     </div>
                 </div>
+                <div class="row">
                 <div class="col-md-6 col-md-offset-2">
                     <input type="submit" value="Update" class="btn btn-success marginTop" name="Update">
                 </div>
+                </div>
             </form>
-            <?php
-            if ($msg) {
-                echo '<div class="alert alert-success">' . addslashes($msg) . '</div>';
-            }
-            ?>
+            
         </div>
-        <script>
-            function myFunction() {
-                return "Do you Want to make any chnages";
-            }
-        </script>
     </body>
 </html>

@@ -1,11 +1,10 @@
 <?php
-//error_reporting(0);
 include ('forgot.php');
 ?>
 <!DOCTYPE HTML>
 <html>
     <head lang="en">
-        <title>FORUM MANAGEMENT</title>
+        <title>FORGOT PASSWORD</title>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -41,7 +40,7 @@ include ('forgot.php');
                 <div class="row">
                     <div class="col-md-6 col-md-offset-2">
                         Email Address
-                        <input type="email" id="EmailForgot" name="EmailForgot" class="form-control" required value="<?php if (isset($email)) echo $email; ?>"/>
+                        <input type="email" id="EmailForgot" name="EmailForgot" class="form-control" required value="<?php if (isset($Email)) echo $Email; ?>"/>
                     </div>
                     <div class="col-md-6 col-md-offset-2">
                         <input type="submit" value="submit" class="btn btn-success marginTop" name="submit">
@@ -51,11 +50,11 @@ include ('forgot.php');
         </form>
         </div>
         <?php
-        if (isset($error)) {
-            echo '<div class="alert alert-danger">' . $error . '</div>';
+        if (isset($Error)) {
+            echo '<div class="alert alert-danger">' . $Error . '</div>';
         }
-        if (isset($message)) {
-            echo '<div class="alert alert-success">' . $message . '</div>';
+        if (isset($Message)) {
+            echo '<div class="alert alert-success">' . $Message . '</div>';
         }
         ?>
     </body>

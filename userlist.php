@@ -2,21 +2,20 @@
 include("connection.php");
 include 'login.php';
 include 'adminlogin.php';
-$sql = "SELECT Id,FirstName,LastName,EmailAddress FROM RegisteredUser";
-$result = mysqli_query($link, $sql);
-$Row = mysqli_fetch_all($result);
+$Query = "SELECT Id,FirstName,LastName,EmailAddress FROM RegisteredUser";
+$Result = mysqli_query($Link, $Query);
+$Row = mysqli_fetch_all($Result);
 ?>
 <!DOCTYPE HTML>
 <html>
     <head lang="en">
-        <title>FORUM MANAGEMENT</title>
+        <title>USER LIST</title>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link type="text/css" href="css/bootstrap.min.css" rel="stylesheet">
         <link type="text/css" rel="stylesheet" href="css/style.css">
         <link href="https://cdn.datatables.net/1.10.11/css/jquery.dataTables.min.css" rel="stylesheet">
-
         <script type="text/javascript" src="js/jquery-2.2.2.min.js"></script>
         <script type="text/javascript" src="js/bootstrap.min.js"></script>
         <script type="text/javascript" src="https://cdn.datatables.net/1.10.11/js/jquery.dataTables.min.js"></script>
@@ -34,16 +33,14 @@ $Row = mysqli_fetch_all($result);
                     ]
                 });
                 var table = $('#example').DataTable();
-
                 $('#example tbody').on('click', 'tr', function () {
                     var data = table.row(this).data();
-                    window.location.href="view.php?Id="+data[0];
+                    window.location.href = "view.php?Id=" + data[0];
                 });
             });
-
         </script>
     </head>
-    <body data-type="scroll"> 
+    <body> 
         <div class="navbar navbar-inverse">
             <div class="container-fluid">
                 <div class="navbar-header">
@@ -71,13 +68,9 @@ $Row = mysqli_fetch_all($result);
                 </div>
             </div>
         </div>
-        <div class="container UserContainer">
-            <div class="container childContainer">
-                <form class="form-group"  id="UserProfile" method="post" enctype="multipart/form-data" >
-                    <table id="example" class="display" width="100%">
-                    </table>
-                </form>   
-            </div>
+        <div class="container">  
+            <table id="example" class="display" width="100%">
+            </table>  
         </div>
     </body>
 </html>

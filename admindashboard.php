@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
     <head lang="en">
-        <title>FORUM MANAGEMENT</title>
+        <title>ADMIN DASHBOARD</title>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -10,7 +10,6 @@
         <script type="text/javascript" src="js/jquery-2.2.2.min.js"></script>
         <script type="text/javascript" src="js/bootstrap.min.js"></script>
         <script type="text/javascript" src="js/validation.js"></script>
-        
     </head>
     <body> 
         <div class="navbar navbar-inverse">

@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
     <head lang="en">
-        <title>FORUM MANAGEMENT</title>
+        <title>LOGIN SUCCESS</title>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -12,11 +12,11 @@
         <script type="text/javascript" src="js/validation.js"></script>
         <?php
         include("login.php");
-        if($id=$_SESSION['id']){
-        $Userquery = "SELECT FirstName FROM RegisteredUser WHERE Id='" . $_SESSION['id'] . "' LIMIT 1";
-        $Userresult = mysqli_query($link, $Userquery);
-        $row = mysqli_fetch_array($Userresult);
-        $Name = $row['FirstName'];}
+        if($id=$_SESSION['Id']){
+        $UserQuery = "SELECT FirstName FROM RegisteredUser WHERE Id='" . $_SESSION['Id'] . "' LIMIT 1";
+        $UserResult = mysqli_query($Link, $UserQuery);
+        $Row = mysqli_fetch_array($UserResult);
+        $Name = $Row['FirstName'];}
         else{
             header("location:user.php");
         }
@@ -35,13 +35,6 @@
                 </div>
             </div>
         </div>
-        <!--<div class="container">
-            <div class="row">
-                <div class="col-md-6 col-md-offset-3">
-       
-                </div>
-            </div>
-        </div>-->
         <div class="container contentContainer">
             <div class="row center marginTop">
                 <div class="col-md-6 col-md-offset-3 center color ">

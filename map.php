@@ -3,7 +3,7 @@ include 'login.php';
 //include 'update.php';
 //include 'adminuser.php';
 $UserQuery = "SELECT AddressOne,AddressTwo FROM RegisteredUser WHERE Id='" . $_GET['Id'] . "' LIMIT 1";
-$UserResult = mysqli_query($link, $UserQuery);
+$UserResult = mysqli_query($Link, $UserQuery);
 $Address = mysqli_fetch_array($UserResult);
 $variable = $Address['AddressOne'] . "&nbsp;" . $Address['AddressTwo'] . "&nbsp;" . $Address['City'] . "&nbsp;" . $Address['State'];
 echo $variable;
@@ -62,7 +62,7 @@ echo $variable;
                         });
 
 
-                        $("#myModal").on("shown.bs.modal", function () {
+                        $("#Map").on("shown.bs.modal", function () {
                             google.maps.event.trigger(googleMap, "resize");
                             return map.setCenter(myCenter);
                         });
@@ -78,6 +78,6 @@ echo $variable;
         </script>
     </head>
     <body>
-        <div id="googleMap" style="width:500px;height:380px;"></div>
+        <div id="googleMap" style="height:380px;"></div>
     </body>
 </html>

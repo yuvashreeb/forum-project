@@ -105,47 +105,47 @@ function InvalidZipCode(textbox) {
 
 $(document).ready(function () {
     $("#FirstName").blur(function () {
-        var first = $("#FirstName").val();
-        if (first === "")
+        var FirstName = $("#FirstName").val();
+        if (FirstName === "")
         {
-            $("#firstnameerror").html("enter Firstname");
-        } else if ($.isNumeric(first))
+            $("#FirstNameError").html("enter Firstname");
+        } else if ($.isNumeric(FirstName))
         {
-            $("#firstnameerror").html("enter only characters");
+            $("#FirstNameError").html("enter only characters");
         } else
         {
-            $("#firstnameerror").html("");
+            $("#FirstNameError").html("");
         }
 
     });
     $("#LastName").blur(function () {
-        var first = $("#LastName").val();
-        if (first === "")
+        var LastName = $("#LastName").val();
+        if (LastName === "")
         {
-            $("#lastnameerror").html("enter Lastname");
-        } else if ($.isNumeric(first))
+            $("#LastNameError").html("enter Lastname");
+        } else if ($.isNumeric(LastName))
         {
-            $("#lastnameerror").html("enter only characters");
+            $("#LastNameError").html("enter only characters");
         } else
         {
-            $("#lastnameerror").html("");
+            $("#LastNameError").html("");
         }
 
     });
     $("#MobileNumber").blur(function () {
-        var first = $("#MobileNumber").val();
-        if (first === "")
+        var Number = $("#MobileNumber").val();
+        if (Number === "")
         {
-            $("#MobileNumbererror").html("enter mobile number");
-        } else if (!$.isNumeric(first))
+            $("#MobileNumberError").html("enter mobile number");
+        } else if (!$.isNumeric(Number))
         {
-            $("#MobileNumbererror").html("enter only numbers");
-        } else if (first.length < 10)
+            $("#MobileNumberError").html("enter only numbers");
+        } else if (Number.length < 10)
         {
-            $("#MobileNumbererror").html("enter 10 digits");
+            $("#MobileNumberError").html("enter 10 digits");
         } else
         {
-            $("#MobileNumbererror").html("");
+            $("#MobileNumberError").html("");
         }
 
     });
@@ -154,9 +154,9 @@ $(document).ready(function () {
         var ValidatePassword = $("#Password").val();
         if (ValidatePassword.length < 8)
         {
-            $("#passworderror").html("Password should be atleast 8 characters and one captial letter");
+            $("#PasswordError").html("Password should be atleast 8 characters and one captial letter");
         } else {
-            $("#passworderror").html("");
+            $("#PasswordError").html("");
         }
 
     });
@@ -165,9 +165,9 @@ $(document).ready(function () {
         var ValidateconfirmPassword = $("#ConfirmPassword").val();
         if (ValidateconfirmPassword != $("#Password").val())
         {
-            $("#ConfirmPassworderror").html("Confirm Password Should be same as above Password")
+            $("#ConfirmPasswordError").html("Confirm Password Should be same as above Password")
         } else {
-            $("#ConfirmPassworderror").html("");
+            $("#ConfirmPasswordError").html("");
         }
     });
     $("#NewPassword").blur(function () {
@@ -175,9 +175,9 @@ $(document).ready(function () {
         var ValidatePassword = $("#NewPassword").val();
         if (ValidatePassword.length < 8)
         {
-            $("#Newpassworderror").html("Password should be atleast 8 characters and one captial letter");
+            $("#NewpasswordError").html("Password should be atleast 8 characters and one captial letter");
         } else {
-            $("#Newpassworderror").html("");
+            $("#NewpasswordError").html("");
         }
 
     });
@@ -186,63 +186,59 @@ $(document).ready(function () {
         var ValidateconfirmPassword = $("#NewConfirmPassword").val();
         if (ValidateconfirmPassword != $("#NewPassword").val())
         {
-            $("#NewConfirmPassworderror").html("Confirm Password Should be same as above Password")
+            $("#NewConfirmPasswordError").html("Confirm Password Should be same as above Password")
         } else {
-            $("#NewConfirmPassworderror").html("");
+            $("#NewConfirmPasswordError").html("");
         }
     });
     $("#City").blur(function () {
-        var last = $("#City").val();
-        if (last === "")
+        var City = $("#City").val();
+        if (City === "")
         {
-            $("#cityerror").html("enter ur city");
-        } else if (($.isNumeric(last)))
+            $("#CityError").html("enter ur city");
+        } else if (($.isNumeric(City)))
         {
-            $("#cityerror").html("enter only characters");
+            $("#CityError").html("enter only characters");
         } else {
-            $("#cityerror").html("");
+            $("#CityError").html("");
         }
     });
     $("#State").blur(function () {
-        var last = $("#State").val();
-        if (last === "")
+        var State = $("#State").val();
+        if (State === "")
         {
-            $("#stateerror").html("enter ur state");
-        } else if (($.isNumeric(last)))
+            $("#StateError").html("enter ur state");
+        } else if (($.isNumeric(State)))
         {
-            $("#stateerror").html("enter only characters");
+            $("#StateError").html("enter only characters");
         } else {
-            $("#stateerror").html("");
+            $("#StateError").html("");
         }
     });
     $("#ZipCode").blur(function () {
-        var last = $("#ZipCode").val();
-        /*if (last === "")
+        var Zip = $("#ZipCode").val();
+        if (Zip.length !== 6)
         {
-            $("#ziperror").html("enter ur zipcode");
-        }*/
-        if (last.length !== 6)
-        {
-            $('#ziperror').html("please enter 6digit zipcode");
+            $('#ZipError').html("please enter 6digit zipcode");
             error = 1;
 
-        } else if (!($.isNumeric(last)))
+        } else if (!($.isNumeric(Zip)))
         {
-            $("#ziperror").html("enter only numbers");
+            $("#ZipError").html("enter only numbers");
         } else {
-            $("#ziperror").html("");
+            $("#ZipError").html("");
         }
     });
     $("#Country").blur(function () {
-        var last = $("#Country").val();
-        if (last === "")
+        var Country = $("#Country").val();
+        if (Country === "")
         {
-            $("#countryerror").html("enter ur country");
-        } else if (($.isNumeric(last)))
+            $("#CountryError").html("enter ur country");
+        } else if (($.isNumeric(Country)))
         {
-            $("#countryerror").html("enter only characters");
+            $("#CountryError").html("enter only characters");
         } else {
-            $("#countryerror").html("");
+            $("#CountryError").html("");
         }
     });
 });

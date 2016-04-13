@@ -3,12 +3,12 @@ include 'login.php';
 include 'adminlogin.php';
 include 'adminuser.php';
 $UserQuery = "SELECT * FROM RegisteredUser WHERE Id='" . $_GET['Id'] . "' LIMIT 1";
-$UserResult = mysqli_query($link, $UserQuery);
-$row = mysqli_fetch_array($UserResult);
-$UserName = $row['FirstName'];
-$UserLastName = $row['LastName'];
-$UserEmail = $row['EmailAddress'];
-$UserMobile = $row['MobileNumber'];
+$UserResult = mysqli_query($Link, $UserQuery);
+$Row = mysqli_fetch_array($UserResult);
+$UserName = $Row['FirstName'];
+$UserLastName = $Row['LastName'];
+$UserEmail = $Row['EmailAddress'];
+$UserMobile = $Row['MobileNumber'];
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -53,6 +53,11 @@ $UserMobile = $row['MobileNumber'];
             </div>
         </div>
         <div class="container contentContainer">
+            <?php
+            if ($Msg) {
+                echo '<div class="alert alert-success">' . addslashes($Msg) . '</div>';
+            }
+            ?>
             <form class="form-group"  id="registration" method="post">
                 <div class="row">
                     <div class="col-md-6 col-md-offset-2 marginTop">
@@ -94,24 +99,24 @@ $UserMobile = $row['MobileNumber'];
                 <div class="row">
                     <div class="col-md-6 col-md-offset-2">
                         City:
-                        <input type="text" id="City" name="City" class="form-control" required="required" oninvalid="InvalidCity(this);" oninput="InvalidCity(this);"/><span id="cityerror" class="red"></span><br />
+                        <input type="text" id="City" name="City" class="form-control" required="required" oninvalid="InvalidCity(this);" oninput="InvalidCity(this);"/><span id="CityError" class="red"></span><br />
                     </div>
                     <div class="col-md-6 col-md-offset-2">
                         State:
-                        <input type="text" id="State" name="State" class="form-control" required="required" oninvalid="InvalidState(this);" oninput="InvalidState(this);"/><span id="stateerror" class="red"></span><br />
+                        <input type="text" id="State" name="State" class="form-control" required="required" oninvalid="InvalidState(this);" oninput="InvalidState(this);"/><span id="StateError" class="red"></span><br />
 
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-6 col-md-offset-2">
                         Country:
-                        <input type="text" name="Country" id="Country" class="form-control" required="required" oninvalid="InvalidCountry(this);" oninput="InvalidCountry(this);"/><span id="countryerror" class="red"></span><br/>
+                        <input type="text" name="Country" id="Country" class="form-control" required="required" oninvalid="InvalidCountry(this);" oninput="InvalidCountry(this);"/><span id="CountryError" class="red"></span><br/>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-6 col-md-offset-2">
                         Zip Code:
-                        <input type="text" id="ZipCode" name="ZipCode" class="form-control" maxlength="6" required="required" oninvalid="InvalidZipCode(this);" oninput="InvaliZipCode(this);"/><span id="ziperror" class="red"></span><br/>
+                        <input type="text" id="ZipCode" name="ZipCode" class="form-control" maxlength="6" required="required" oninvalid="InvalidZipCode(this);" oninput="InvaliZipCode(this);"/><span id="ZipError" class="red"></span><br/>
                     </div>
                 </div>
                 <div class="col-md-6 col-md-offset-2">
@@ -119,10 +124,5 @@ $UserMobile = $row['MobileNumber'];
                 </div>
             </form>
         </div>
-        <?php
-        if ($msg) {
-            echo '<div class="alert alert-success">' . addslashes($msg) . '</div>';
-        }
-        ?>
     </body>
 </html>

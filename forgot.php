@@ -1,57 +1,53 @@
-<?php 
- include ('connection.php');
+<?php
+include ('connection.php');
+if (isset($_POST["submit"])) {
+    $Email = $_POST["EmailForgot"];
+    $Query = "select FirstName, Password from RegisteredUser where EmailAddress='$Email'";
+    $Result = mysqli_query($Link, $Query);
+    $Row = mysqli_fetch_row($Result);
+    if (!$Row) {
+        $Error = "This email address is not registered";
+    } else {
 
-if(isset($_POST["submit"])){
-$email=$_POST["EmailForgot"];
-$query="select FirstName, Password from RegisteredUser where EmailAddress='$email'";
-$result=mysqli_query($link, $query);
-$row=mysqli_fetch_row($result);
-if(!$row){
-    $error="This email address is not registered";
-}
-else{
-    
-    $message="Passowrd has been sent to your email Id";
- require_once('PHPMailer-master/class.phpmailer.php');
-include("PHPMailer-master/class.smtp.php"); // optional, gets called from within class.phpmailer.php if not already loaded
- 
-$mail             = new PHPMailer();
+        $Message = "Passowrd has been sent to your email Id";
+        require_once('PHPMailer-master/class.phpmailer.php');
+        include("PHPMailer-master/class.smtp.php"); // optional, gets called from within class.phpmailer.php if not already loaded
 
-$body             = "Your Password is: ".$row["1"];
+        $mail = new PHPMailer();
 
-$mail->IsSMTP(); // telling the class to use SMTP
+        $Body = "Your Password is: " . $Row["1"];
 
-$mail->Host       = "mail.gmail.com"; // SMTP server
+        $mail->IsSMTP(); // telling the class to use SMTP
 
-$mail->SMTPDebug  = 0;                     // enables SMTP debug information (for testing)
+        $mail->Host = "mail.gmail.com"; // SMTP server
 
-$mail->SMTPAuth   = true;                  // enable SMTP authentication
+        $mail->SMTPDebug = 0;                     // enables SMTP debug information (for testing)
 
-$mail->SMTPSecure = "tls";                 // sets the prefix to the servier
+        $mail->SMTPAuth = true;                  // enable SMTP authentication
 
-$mail->Host       = "smtp.gmail.com";      // sets GMAIL as the SMTP server
+        $mail->SMTPSecure = "tls";                 // sets the prefix to the servier
 
-$mail->Port       = 587;                   // set the SMTP port for the GMAIL server
+        $mail->Host = "smtp.gmail.com";      // sets GMAIL as the SMTP server
 
-$mail->Username   = "yuvashree.b@karmanya.co.in";  // GMAIL username
+        $mail->Port = 587;                   // set the SMTP port for the GMAIL server
 
-$mail->Password   = "Yuvashree@karmanya";            // GMAIL password
+        $mail->Username = "yuvashree.b@karmanya.co.in";  // GMAIL username
 
- 
+        $mail->Password = "Yuvashree@karmanya";            // GMAIL password
 
-$mail->SetFrom('yuvashree.b@karmanya.co.in', 'yuva');
-$mail->AddReplyTo("yuvashree.b@karmanya.co.in",'yuva');
-$mail->Subject    = "Registration Complete";
-$mail->AltBody    = "To view the message, please use an HTML compatible email viewer!"; // optional, comment out and test
-$mail->MsgHTML($body);
-$address = $email;
-$mail->AddAddress($address, $email);
-if(!$mail->Send()) {
 
-$error.= $mail->ErrorInfo;
 
-}
+        $mail->SetFrom('yuvashree.b@karmanya.co.in', 'yuva');
+        $mail->AddReplyTo("yuvashree.b@karmanya.co.in", 'yuva');
+        $mail->Subject = "Registration Complete";
+        $mail->AltBody = "To view the message, please use an HTML compatible email viewer!"; // optional, comment out and test
+        $mail->MsgHTML($Body);
+        $Address = $Email;
+        $mail->AddAddress($Address, $Email);
+        if (!$mail->Send()) {
 
-}
+            $Error.= $mail->ErrorInfo;
+        }
+    }
 }
 ?>

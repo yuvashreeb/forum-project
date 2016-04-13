@@ -1,4 +1,3 @@
-
 <!DOCTYPE HTML>
 <html>
     <head lang="en">
@@ -15,10 +14,10 @@
         session_start();
         include("connection.php");
         include 'adminlogin.php';
-        $query = "SELECT Name FROM Admin WHERE Id='" . $_SESSION['id'] . "' LIMIT 1";
-        $result = mysqli_query($link, $query);
-        $row = mysqli_fetch_array($result);
-        $Name = $row['Name'];
+        $Query = "SELECT Name FROM Admin WHERE Id='" . $_SESSION['id'] . "' LIMIT 1";
+        $Result = mysqli_query($Link, $Query);
+        $Row = mysqli_fetch_array($Result);
+        $Name = $Row['Name'];
         ?>
     </head>
     <body>
@@ -34,13 +33,6 @@
                 </div>
             </div>
         </div>
-        <!--<div class="container">
-            <div class="row">
-                <div class="col-md-6 col-md-offset-3">
-       
-                </div>
-            </div>
-        </div>-->
         <div class="container contentContainer">
             <div class="row center marginTop">
                 <div class="col-md-6 col-md-offset-3 center color ">

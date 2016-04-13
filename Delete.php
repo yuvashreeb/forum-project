@@ -3,9 +3,9 @@ include 'login.php';
 include 'adminlogin.php';
 include 'adminuser.php';
 $UserQuery = "SELECT * FROM RegisteredUser WHERE Id='" . $_GET['Id'] . "' LIMIT 1";
-$UserResult = mysqli_query($link, $UserQuery);
-$row = mysqli_fetch_array($UserResult);
-$UserEmail = $row['EmailAddress'];
+$UserResult = mysqli_query($Link, $UserQuery);
+$Row = mysqli_fetch_array($UserResult);
+$UserEmail = $Row['EmailAddress'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -65,11 +65,11 @@ $UserEmail = $row['EmailAddress'];
             </div>
             <div class="container UserContainer">
                 <?php
-                if ($error) {
-                    echo '<div class="alert alert-danger">' . addslashes($error) . '</div>';
+                if ($Error) {
+                    echo '<div class="alert alert-danger">' . addslashes($Error) . '</div>';
                 }
-                if ($msg) {
-                    echo '<div class="alert alert-success">' . addslashes($msg) . '</div>';
+                if ($Msg) {
+                    echo '<div class="alert alert-success">' . addslashes($Msg) . '</div>';
                 }
                 ?>
                 <h2><center>Delete Profile</center></h2>

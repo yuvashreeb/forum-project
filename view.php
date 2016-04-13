@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
     <head lang="en">
-        <title>FORUM MANAGEMENT</title>
+        <title>View</title>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -49,8 +49,8 @@
 
                     <?php
                     $UserQuery = "SELECT * FROM RegisteredUser WHERE Id='" . $_GET['Id'] . "' LIMIT 1";
-                    $UserResult = mysqli_query($link, $UserQuery);
-                    $id = $_GET['Id'];
+                    $UserResult = mysqli_query($Link, $UserQuery);
+                    $Id = $_GET['Id'];
                     ?>
 
                     <div class="table-responsive">          
@@ -101,8 +101,7 @@
 
                     <input type="button" class="btn btn-success" id="Edit" value="Edit"/><span class="glyphicon glyphicon-edit"></span><br><br>
                     <input type="button" class="btn btn-success" id="Delete" value="Delete"/><span class="glyphicon glyphicon-trash"></span>
-                    <!--<a href="map.php?Id=<?php echo $id; ?>">Click Here To View Location</a>-->
-                    <br><br> <a href="#" class="read" data-toggle="modal" data-target="#myModal" data-backdrop="static">Click Here to view location<span class="glyphicon glyphicon-map-marker"></span></a>
+                    <br><br> <a href="#" class="read" data-toggle="modal" data-target="#Map" data-backdrop="static">Click Here to view location<span class="glyphicon glyphicon-map-marker"></span></a>
 
                 </form> 
             </div>
@@ -111,20 +110,20 @@
             $(document).ready(function () {
                 $("#Edit").click(function () {
 
-                    window.location.href = "edit.php?Id=<?php echo $id; ?>";
+                    window.location.href = "edit.php?Id=<?php echo $Id; ?>";
                 });
 
             });
             $(document).ready(function () {
                 $("#Delete").click(function () {
 
-                    window.location.href = "Delete.php?Id=<?php echo $id; ?>";
+                    window.location.href = "Delete.php?Id=<?php echo $Id; ?>";
                 });
 
             });
         </script>
 
-        <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal fade" id="Map" role="dialog">
             <div class="modal-dialog">
                 <!-- Modal content-->
                 <div class="modal-content">
