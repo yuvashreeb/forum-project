@@ -22,6 +22,9 @@ if (isset($_POST['AddUser']) == "AddUser") {
     {
         $Error.="please enter valid email id <br/>";
     }
+    else{
+        $Error.="";
+    }
     if (!$_POST['Password'])
         $Error.="please enter the Password <br/>";
 
@@ -59,7 +62,7 @@ if (isset($_POST['AddUser']) == "AddUser") {
         $Error.="please enter the ZipCode<br/>";
     }
     if ($Error)
-        $Error = "there were errors in your Registration details<br/>" . $error;
+        $Error = "there were errors in your Registration details<br/>" . $Error;
     else {
         $Query = "SELECT * FROM RegisteredUser WHERE EmailAddress'" . mysqli_real_escape_string($Link, $_POST['EmailAddress']) . "'";
         $Result = mysqli_query($Link, $Query);
