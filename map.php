@@ -8,12 +8,10 @@ $Address = mysqli_fetch_array($UserResult);
 $variable = $Address['AddressOne'] . "&nbsp;" . $Address['AddressTwo'] . "&nbsp;" . $Address['City'] . "&nbsp;" . $Address['State'];
 echo $variable;
 ?>
-
 <!DOCTYPE html>
 <html>
     <head>
         <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
-
         <script
             src="http://maps.googleapis.com/maps/api/js">
         </script>
@@ -53,15 +51,11 @@ echo $variable;
                         });
 
                         marker.setMap(map);
-
-// Zoom to 9 when clicking on marker
                         google.maps.event.addListener(marker, 'click', function () {
                             map.setZoom(9);
                             map.setCenter(marker.getPosition());
 
                         });
-
-
                         $("#Map").on("shown.bs.modal", function () {
                             google.maps.event.trigger(googleMap, "resize");
                             return map.setCenter(myCenter);

@@ -57,6 +57,9 @@ $UserMobile = $Row['MobileNumber'];
             if ($Msg) {
                 echo '<div class="alert alert-success">' . addslashes($Msg) . '</div>';
             }
+            if ($Error) {
+                echo '<div class="alert alert-danger">' . addslashes($Error) . '</div>';
+            }
             ?>
             <form class="form-group"  id="registration" method="post">
                 <div class="row">
@@ -99,12 +102,11 @@ $UserMobile = $Row['MobileNumber'];
                 <div class="row">
                     <div class="col-md-6 col-md-offset-2">
                         City:
-                        <input type="text" id="City" name="City" class="form-control" required="required" oninvalid="InvalidCity(this);" oninput="InvalidCity(this);"/><span id="CityError" class="red"></span><br />
+                        <input type="text" id="City" name="City" class="form-control" required="required"  oninvalid="InvalidCity(this);" oninput="InvalidCity(this);"/><span id="CityError" class="red"></span><br />
                     </div>
                     <div class="col-md-6 col-md-offset-2">
                         State:
                         <input type="text" id="State" name="State" class="form-control" required="required" oninvalid="InvalidState(this);" oninput="InvalidState(this);"/><span id="StateError" class="red"></span><br />
-
                     </div>
                 </div>
                 <div class="row">

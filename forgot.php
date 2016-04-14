@@ -11,31 +11,29 @@ if (isset($_POST["submit"])) {
 
         $Message = "Passowrd has been sent to your email Id";
         require_once('PHPMailer-master/class.phpmailer.php');
-        include("PHPMailer-master/class.smtp.php"); // optional, gets called from within class.phpmailer.php if not already loaded
+        include("PHPMailer-master/class.smtp.php");
 
         $mail = new PHPMailer();
 
         $Body = "Your Password is: " . $Row["1"];
 
-        $mail->IsSMTP(); // telling the class to use SMTP
+        $mail->IsSMTP();
 
-        $mail->Host = "mail.gmail.com"; // SMTP server
+        $mail->Host = "mail.gmail.com"; 
 
-        $mail->SMTPDebug = 0;                     // enables SMTP debug information (for testing)
+        $mail->SMTPDebug = 0;                    
 
-        $mail->SMTPAuth = true;                  // enable SMTP authentication
+        $mail->SMTPAuth = true;                 
 
-        $mail->SMTPSecure = "tls";                 // sets the prefix to the servier
+        $mail->SMTPSecure = "tls";                
 
-        $mail->Host = "smtp.gmail.com";      // sets GMAIL as the SMTP server
+        $mail->Host = "smtp.gmail.com";     
 
-        $mail->Port = 587;                   // set the SMTP port for the GMAIL server
+        $mail->Port = 587;                   
 
-        $mail->Username = "yuvashree.b@karmanya.co.in";  // GMAIL username
+        $mail->Username = "yuvashree.b@karmanya.co.in";  
 
-        $mail->Password = "Yuvashree@karmanya";            // GMAIL password
-
-
+        $mail->Password = "Yuvashree@karmanya";           
 
         $mail->SetFrom('yuvashree.b@karmanya.co.in', 'yuva');
         $mail->AddReplyTo("yuvashree.b@karmanya.co.in", 'yuva');
@@ -45,7 +43,6 @@ if (isset($_POST["submit"])) {
         $Address = $Email;
         $mail->AddAddress($Address, $Email);
         if (!$mail->Send()) {
-
             $Error.= $mail->ErrorInfo;
         }
     }

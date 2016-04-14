@@ -8,7 +8,6 @@ $Name = $Row['FirstName'];
 $LastName = $Row['LastName'];
 $EmailAddress = $Row['EmailAddress'];
 $MobileNumber = $Row['MobileNumber'];
-
 if ($_GET['logout'] == 1 AND $_SESSION['id']) {
     session_destroy();
     $Msg = "you have been successfully logged out!";
@@ -22,12 +21,9 @@ if (isset($_POST['submit']) == "Sign Up") {
     else if (!(filter_var($_POST['EmailAddress'], FILTER_VALIDATE_EMAIL)))
         $Error.="please enter valid email id <br/>";
 
-
     if (!$_POST['Password'])
         $Error.="please enter the password <br/>";
     else {
-
-
         if (strlen($_POST['Password']) < 8)
             $Error.="the length of pssword must be atleast 8 characters<br/>";
         if (!preg_match('`[A-Z]`', $_POST['Password']))
@@ -36,8 +32,6 @@ if (isset($_POST['submit']) == "Sign Up") {
     if ($Error)
         $Error = "there were errors in your signup details<br/>" . $Error;
     else {
-        // $password_md=md5(md5($_POST['email'].$_POST['password']));
-
         $Query = "SELECT * FROM RegisteredUser WHERE EmailAddress='" . mysqli_real_escape_string($Link, $_POST['EmailAddress']) . "'";
         $Result = mysqli_query($Link, $Query);
         $Results = mysqli_num_rows($Result);
@@ -48,7 +42,6 @@ if (isset($_POST['submit']) == "Sign Up") {
             mysqli_query($Link, $Query);
             $Msg.="<center>You Were Successfully Signed Up !</center>";
             include 'mail.php';
-
         }
     }
 }

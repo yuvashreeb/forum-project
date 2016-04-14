@@ -75,15 +75,13 @@ $UserEmail = $Row['EmailAddress'];
                 <h2><center>Delete Profile</center></h2>
                 <div class="container col-md-6 col-offset-3"> 
                     <form class="form-group"  id="DeleteProfile" method="post" enctype="multipart/form-data" > 
-                        <div class="col-md-12 col-offset-3">
-                            
+                        <div class="col-md-12 col-offset-3"> 
                             <label for=EmailAddress>Email Address</label>
                             <input type="email" id="EmailAddress" name="EmailAddress" placeholder="EmailAddress" class="form-control " readonly value="<?php echo $UserEmail; ?>" />
                         </div>
 
                         <div class="col-md-6 col-offset-3 marginTop">
                             <input type="submit" class="btn btn-success btn-lg" value="DeleteProfile" name="DeleteProfile" id="DeleteProfile"/></div>
-
                     </form>
                 </div>
             </div>

@@ -15,9 +15,7 @@ $UserState = $Row['State'];
 $UserCountry = $Row['Country'];
 $UserZipCode = $Row['ZipCode'];
 if (isset($_POST['Update']) == "Update") {
-
     $Error = "";
-
     if (!$_POST['AddressOne']) {
         $Error.="please enter the AddressOne<br/>";
     }
@@ -41,7 +39,6 @@ if (isset($_POST['Update']) == "Update") {
         $Error = "there were errors in your Update details<br/>" . $Error;
     else {
         $UserQuery = 'UPDATE RegisteredUser SET AddressOne="' . ($_POST['AddressOne']) . '",AddressTwo="' . ($_POST['AddressTwo']) . '",City="' . ($_POST['City']) . '",State="' . ($_POST['State']) . '",Country="' . ($_POST['Country']) . '",ZipCode="' . ($_POST['ZipCode']) . '" WHERE Id="' . $_SESSION['Id'] . '" LIMIT 1';
-
         if ($UserResult = mysqli_query($Link, $UserQuery))
             $Msg.="your Profile was successfully Updated!";
         $Row = mysqli_fetch_array($UserResult);

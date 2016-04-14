@@ -34,7 +34,6 @@ include('login.php');
                                     <span class="caret"></span></a>
                                 <ul class="dropdown-menu">
                                     <li><a href="editprofile.php"><span class="glyphicon glyphicon-edit"></span>Edit Profile</a></li>
-
                                 </ul>
                             </li>
                             <li><a href="userview.php"><span class="glyphicon glyphicon-eye-open"></span>View Profile</a></li>

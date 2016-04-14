@@ -1,3 +1,6 @@
+<?php
+error_reporting(0);
+?>
 <!DOCTYPE HTML>
 <html>
     <head lang="en">
@@ -22,7 +25,7 @@
                     </button>
                     <a href="" class="navbar-brand">FORUM MANAGEMENT</a>
                 </div>
-                <div class="pull-right">
+                <div class="pull-left">
                     <div class="collapse navbar-collapse">
                         <ul class="nav navbar-nav">>
                             <li class="dropdown">
@@ -35,6 +38,12 @@
                             </li>
                             <li><a href="admin.php?logout=1"><span class="glyphicon glyphicon-log-out"></span>Log Out</a></li>
                         </ul>
+                    </div>
+                </div>
+                <div class="navbar-form navbar-right">
+                    <div class="sign">
+                        <?php echo Yuva; ?>
+                        <img src="images/user.png" />
                     </div>
                 </div>
             </div>

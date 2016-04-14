@@ -95,7 +95,6 @@ include ("login.php");
                     <div class="col-md-6 col-md-offset-2">
                         <input type="submit" value="Sign Up" class="btn btn-success marginTop" name="submit">
                     </div>
-
                 </form>
             </div>
         </div>
